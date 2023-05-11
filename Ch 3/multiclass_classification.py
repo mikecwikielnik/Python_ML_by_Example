@@ -25,4 +25,28 @@ print(f'{n_class0} class0 samples\n{n_class1} class1 samples\n{n_class2} class2 
 
 # 2) next, we split the data into training and testing sets
 
-X_train, X_text, Y_train
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, random_state = 42)
+
+# 3) we can now apply the svm classifier to the data. 
+# We first initialize an SVC model and fit it against the training set:
+
+
+from sklearn.svm import SVC
+clf = SVC(kernel='linear', C=1.0, random_state=42)
+clf.fit(X_train, Y_train)
+
+# In an SVC model, multiclass support is implicitly handled according to the one vs one scheme
+
+# 4) next, we predict  on the testing set with the trained model and obtain the prediction accuracy directly;
+
+accuracy = clf.score(X_test, Y_test)
+print(f'The accuracy is: {accuracy}%')
+
+# 5) we also check how it performs for individual classes
+
+from sklearn.metrics import classification_report
+
+pred = clf.predict(X_test)
+print(classification_report(Y_test, pred))
