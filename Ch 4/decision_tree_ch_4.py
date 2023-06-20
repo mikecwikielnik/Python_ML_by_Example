@@ -78,3 +78,64 @@ children_2 = [[1, 1], [0, 0, 1]]
 
 print(f"Entropy of #1 split: {weighted_impurity(children_1, 'entropy'):.4f}")
 print(f"Entropy of #2 split: {weighted_impurity(children_2, 'entropy'):.4f}")
+
+
+# For Gini Impurity, we have the following:
+
+def gini_impurity_np(labels):
+    # when the set is empty, it is also pure
+    if labels.size == 0:
+        return 0
+    # count the occurences of each label
+    counts = np.unique(labels, return_counts=True)[1]
+    fractions = counts / float(len(labels))
+    return 1 - np.sum(fractions**2)
+
+def entropy_np(labels):
+    # when the set is empty, it is also pure
+    if labels.size == 0:
+        return 0
+    counts = np.unique(labels, return_counts=True)[1]
+    fractions = counts / float(len(labels))
+    return - np.sum(fractions * np.log2(fractions))
+
+criterion_function_np = {'gini': gini_impurity_np, 'entropy': entropy_np}
+
+def weighted_impurity(groups, criterion='gini'):
+    """
+    Calculate weighted impurity of children after a split
+    @param groups: list of children, and a child consists a list of class labels
+    @param criterion: metric to measure the quality of a split,
+        'gini' for Gini Impurity or 
+        'entropy' for Information Gain
+    @return: float, weighted impurity
+    """
+
+    total = sum(len(group) for group in groups)
+    weighted_sum = 0.0
+    for group in groups:
+        weighted_sum += len(group) / float(total) * criterion_function_np[criterion](group)
+    return weighted_sum
+
+def split_node(X, y, index, value):
+    """
+    Split dataset X, y based on a feature and a value
+    @param X: numpy.ndarray, dataset feature
+    @param y: numpy.ndarray, dataset target
+    @param index: int, index of the feature used for splitting
+    @param value: value of the feature used for splitting
+    @return: list, list, left and right child, a child is in 
+        the format of [X, y]
+    """
+
+    x_index = X[:, index]
+    # if this feature is numerical
+    if X[0, index].dtype.kind in ['i', 'f']:
+        mask = x_index >= value
+    # if this feature is categorical
+    else:
+        mask = x_index == value
+    # split into left and right child
+    left = [X[~mask, :], y[~mask]]
+    right = [X[mask, :], y[mask]]
+    return left, right
