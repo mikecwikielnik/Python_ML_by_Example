@@ -139,3 +139,25 @@ def split_node(X, y, index, value):
     left = [X[~mask, :], y[~mask]]
     right = [X[mask, :], y[mask]]
     return left, right
+
+def ge_best_split(X, y, criterion):
+    """
+    Obtain the best splitting point and resulting children for
+        the dataset X, y
+    @param X: numpy.ndarray, dataset feature
+    @param y: numpy.ndarray, dataset target
+    @param criterion: gini or entropy
+    @return: dict{index: index of the feature, value: feature
+        value, children: left and right children}
+    """
+
+    best_index, best_value, best_score, children = None, None, 1, None
+    for index in range(len(X[0])):
+        for value in np.sort(np.unique(X[:, index])):
+            groups = split_node(X, y, index, value)
+            impurity = weighted_impurity(
+                [groups[0][1], groups[1][1]], criterion)
+            if impurity < best_score:
+                best_index, best_value, best_score, children = index, value, impurity, groups
+    return {'index': best_index, 'value': best_value, 'children': children}
+
