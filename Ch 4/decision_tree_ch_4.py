@@ -140,7 +140,7 @@ def split_node(X, y, index, value):
     right = [X[mask, :], y[mask]]
     return left, right
 
-def ge_best_split(X, y, criterion):
+def get_best_split(X, y, criterion):
     """
     Obtain the best splitting point and resulting children for
         the dataset X, y
@@ -161,3 +161,60 @@ def ge_best_split(X, y, criterion):
                 best_index, best_value, best_score, children = index, value, impurity, groups
     return {'index': best_index, 'value': best_value, 'children': children}
 
+def get_leaf(labels):
+    # obtain the leaf as the majority of the labels
+    return np.bincount(labels).argmax()
+
+def split(node, max_depth, min_size, depth, criterion):
+    """
+    split children of a node to construct new nodes or assign
+    them terminals
+    @param node: dict, with children info
+    @param max_depth: int, maximal depth of the tree
+    @param min_size: int, minimal samples required to further split a child
+    @param depth: int, current depth of a the node
+    @param criterion: gini or entropy
+    """
+
+    left, right = node['children']
+    del(node['children'])
+    if left[1].size == 0:
+        node['right'] = get_leaf(right[1])
+        return
+    if right[1].size == 0:
+        node['left'] = get_leaf(left[1])
+        return 
+    # check if the current depth exceeds the maximal depth
+    if depth >= max_depth:
+        node['left'], node['right'] = get_leaf(left[1]), get_leaf(right[1])
+        return
+    # check if the left child has enough samples
+    if left[1].size <= min_size:
+        node['left'] = get_leaf(left[1])
+    else:
+        # it has enough samples, we further split it
+        result = get_best_split(left[0], left[1], criterion)
+        result_left, result_right = result['children']
+        if result_left[1].size == 0:
+            node['left'] = get_leaf(result_right[1])
+        elif result_right[1].size == 0:
+            node['left'] = get_leaf(result_left[1])
+        else:
+            node['left'] = result
+            split(node['left'], max_depth, min_size, depth + 1, criterion)
+    # check if the right child has enough samples
+    if right[1].size <= min_size:
+        node['right'] = get_leaf(right[1])
+    else:
+        # it has enough samples, we further split it
+        result = get_best_split(right[0], right[1], criterion)
+        result_left, result_right = result['children']
+        if result_left[1].size == 0:
+            node['right'] = get_leaf(result_right[1])
+        elif result_right[1].size == 0:
+            node['right'] = get_leaf(result_left[1])
+        else:
+            node['right'] = result
+            split(node['right'], max_depth, min_size, depth + 1, criterion)
+
+            
