@@ -217,4 +217,53 @@ def split(node, max_depth, min_size, depth, criterion):
             node['right'] = result
             split(node['right'], max_depth, min_size, depth + 1, criterion)
 
-            
+def train_tree(X_train, y_train, max_depth, min_size, criterion='gini'):
+    """
+    Construction of a tree starts here
+    @param X_train: list of training samples (feature)
+    @param y_train: list of training samples (target)
+    @param max_depth: int, maximal depth of the tree
+    @param min_size: int, minimal samples required to further split a child
+    @param criterion: gini or entropy
+    """
+    X = np.array(X_train)
+    y = np.array(y_train)
+    root = get_best_split(X, y, criterion)
+    split(root, max_depth, min_size, 1, criterion)
+    return root
+
+
+X_train = [['tech', 'professional'],
+           ['fashion', 'student'],
+           ['fashion', 'professional'],
+           ['sports', 'student'],
+           ['tech', 'student'],
+           ['tech', 'retired'],
+           ['sports', 'professional']]
+
+y_train = [1, 0, 0, 0, 1, 0, 1]
+
+tree = train_tree(X_train, y_train, 2, 2)
+
+# to verify the resulting tree from the model is identical to what we constructed by hand
+
+CONDITION = {'numerical': {'yes': '>=', 'no': '<'},
+             'categorical': {'yes': 'is', 'no': 'is not'}}
+def visualize_tree(node, depth=0):
+    if isinstance(node, dict):
+        if node['value'].dtype.kind in ['i', 'f']:
+            condition = CONDITION['numerical']
+        else:
+            condition = CONDITION['categorical']
+        print('{}|- X{} {} {}'.format(depth * ' ',
+                                      node['index'] + 1, condition['no'], node['value']))
+        if 'left' in node:
+            visualize_tree(node['left'], depth + 1)
+        print('{}|- X{} {} {}'.format(depth * ' ',
+                                      node['index'] + 1, condition['yes'], node['value']))
+        if 'right' in node:
+            visualize_tree(node['right'], depth + 1)
+    else:
+        print(f"{depth * ' '}[{node}]")
+
+visualize_tree(tree)
