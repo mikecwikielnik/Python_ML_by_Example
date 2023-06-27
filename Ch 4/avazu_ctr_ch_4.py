@@ -12,3 +12,7 @@ n_rows = 300000
 df = pd.read_csv("train.csv", nrows=n_rows)
 
 print(df.head(5))
+
+# the target variable is the click column:
+
+Y = df['click'].values
