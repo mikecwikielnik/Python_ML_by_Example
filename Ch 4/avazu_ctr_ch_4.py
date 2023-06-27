@@ -23,3 +23,11 @@ X = df.drop(['click', 'id', 'hour', 'device_id', 'device_ip'],
             axis=1).values
 print(X.shape)  # this literally basic R functions 
 
+# if the data is in chronological order, just take the first 90% for the training set
+# the balance for the testing set
+
+n_train = int(n_rows * 0.9)
+X_train = X[:n_train]
+Y_train = Y[:n_train]
+X_test = X[n_train:]
+Y_test = Y[n_train:]
