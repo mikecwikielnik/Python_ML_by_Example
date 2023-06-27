@@ -31,3 +31,14 @@ X_train = X[:n_train]
 Y_train = Y[:n_train]
 X_test = X[n_train:]
 Y_test = Y[n_train:]
+
+# discrete var into continuous var using OneHotEncoder
+
+from sklearn.preprocessing import OneHotEncoder
+enc = OneHotEncoder(handle_unknown='ignore')
+
+# we fit it on the training set as follows:
+
+X_train_enc = enc.fit_transform(X_train)
+X_train_enc[0]
+print(X_train_enc[0])
