@@ -16,3 +16,10 @@ print(df.head(5))
 # the target variable is the click column:
 
 Y = df['click'].values
+
+# removing unnecessary featurs: id, hour, device_id, device_ip
+
+X = df.drop(['click', 'id', 'hour', 'device_id', 'device_ip'],
+            axis=1).values
+print(X.shape)  # this literally basic R functions 
+
