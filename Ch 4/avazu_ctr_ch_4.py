@@ -61,6 +61,8 @@ from sklearn.model_selection import GridSearchCV
 # we use a 3-fold cross-validation and select the best performing
 # hyperparameter measured by AUC:
 
-grid_search = GridSearchCV(decision_tree, parameters, 
-                           n_jobs= -1, cv= 3, scoring= 'roc_auc')
+grid_search = GridSearchCV(decision_tree, parameters, n_jobs= -1, cv= 3, scoring= 'roc_auc')
+
+grid_search.fit(X_train_enc, Y_train)
+print(grid_search.best_params_)
 
