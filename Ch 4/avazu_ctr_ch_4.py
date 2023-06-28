@@ -47,3 +47,7 @@ print(X_train_enc[0])
 
 X_test_enc = enc.transform(X_test)
 
+# tweaking the max_depth hyperparameter
+
+from sklearn.tree import DecisionTreeClassifier
+parameters = {'max_depth': [3, 10, None]}
