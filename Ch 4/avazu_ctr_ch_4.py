@@ -42,3 +42,8 @@ enc = OneHotEncoder(handle_unknown='ignore')
 X_train_enc = enc.fit_transform(X_train)
 X_train_enc[0]
 print(X_train_enc[0])
+
+# we transform the testing set using the trained one-hot encoder as follows:
+
+X_test_enc = enc.transform(X_test)
+
