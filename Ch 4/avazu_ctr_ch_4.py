@@ -66,3 +66,9 @@ grid_search = GridSearchCV(decision_tree, parameters, n_jobs= -1, cv= 3, scoring
 grid_search.fit(X_train_enc, Y_train)
 print(grid_search.best_params_)
 
+decision_tree_best = grid_search.best_estimator_
+pos_prob = decision_tree_best.predict_proba(X_test_enc)[:, 1]
+
+from sklearn.metrics import roc_auc_score
+print(f'The ROC AUC on testing set is: {roc_auc_score(Y_test, pos_prob):.3f}')
+
