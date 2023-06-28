@@ -72,3 +72,4 @@ pos_prob = decision_tree_best.predict_proba(X_test_enc)[:, 1]
 from sklearn.metrics import roc_auc_score
 print(f'The ROC AUC on testing set is: {roc_auc_score(Y_test, pos_prob):.3f}')
 
+import numpy as np
