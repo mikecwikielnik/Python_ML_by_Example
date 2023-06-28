@@ -51,3 +51,9 @@ X_test_enc = enc.transform(X_test)
 
 from sklearn.tree import DecisionTreeClassifier
 parameters = {'max_depth': [3, 10, None]}
+
+# initialize a decision tree model with Gini Impurity as the metric
+# 30 as the min number of samples required to split further
+
+decision_tree = DecisionTreeClassifier(criterion='gini', min_samples_split=30)
+from sklearn.model_selection import GridSearchCV
