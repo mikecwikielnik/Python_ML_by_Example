@@ -78,3 +78,12 @@ click_index = np.random.choice(len(Y_test), int(len(Y_test) * 51211.0/300000), r
 pos_prob[click_index] = 1
 
 print(f'The ROC AUC on testing set is: {roc_auc_score(Y_test, pos_prob):.3f}')
+
+# to employ a random forest, we use a package from scikit-learn
+
+from sklearn.ensemble import RandomForestClassifier
+
+random_forest = RandomForestClassifier(n_estimators=100, criterion='gini', min_samples_split=30, n_jobs= -1)
+grid_search = GridSearchCV(random_forest, parameters, n_jobs= -1, cv= 3, scoring='roc_auc')
+grid_search.fit(X_train_enc, Y_train)
+print(grid_search.best_params_)
