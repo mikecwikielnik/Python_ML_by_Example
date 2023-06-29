@@ -73,3 +73,8 @@ from sklearn.metrics import roc_auc_score
 print(f'The ROC AUC on testing set is: {roc_auc_score(Y_test, pos_prob):.3f}')
 
 import numpy as np
+pos_prob = np.zeros(len(Y_test))
+click_index = np.random.choice(len(Y_test), int(len(Y_test) * 51211.0/300000), replace=False)
+pos_prob[click_index] = 1
+
+print(f'The ROC AUC on testing set is: {roc_auc_score(Y_test, pos_prob):.3f}')
