@@ -87,3 +87,9 @@ random_forest = RandomForestClassifier(n_estimators=100, criterion='gini', min_s
 grid_search = GridSearchCV(random_forest, parameters, n_jobs= -1, cv= 3, scoring='roc_auc')
 grid_search.fit(X_train_enc, Y_train)
 print(grid_search.best_params_)
+print(grid_search.best_score_)
+
+random_forest_best = grid_search.best_estimator_
+pos_prob = random_forest_best.predict_proba(X_test_enc)[:, 1]
+print(f'The ROC AUC on testing set is: {roc_auc_score(Y_test, pos_prob):.3f}')
+
