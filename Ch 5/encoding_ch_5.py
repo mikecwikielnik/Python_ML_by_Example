@@ -26,4 +26,8 @@ print(dict_one_hot_encoder.vocabulary_)
 
 new_dict = [{'interest': 'sports', 'occupation': 'retired'}]
 new_encoded = dict_one_hot_encoder.transform(new_dict)
-print(new_encoded)
+print(new_encoded) # in the previous print, look at where they are ordered & u can match this code with that code
+
+# we can inversely transform the encoded features back to the original features lik this:
+
+print(dict_one_hot_encoder.inverse_transform(new_encoded))
