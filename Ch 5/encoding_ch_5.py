@@ -21,3 +21,9 @@ print(X_encoded)
 # we can see the mapping by this line of code too
 
 print(dict_one_hot_encoder.vocabulary_)
+
+# when it comes to new data, we can tranform it with the following:
+
+new_dict = [{'interest': 'sports', 'occupation': 'retired'}]
+new_encoded = dict_one_hot_encoder.transform(new_dict)
+print(new_encoded)
