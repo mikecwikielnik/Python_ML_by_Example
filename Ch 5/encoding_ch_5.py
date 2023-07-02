@@ -17,3 +17,7 @@ X_dict = [{'interest': 'tech', 'occupation': 'professional'},
 dict_one_hot_encoder = DictVectorizer(sparse=False)
 X_encoded = dict_one_hot_encoder.fit_transform(X_dict)
 print(X_encoded)
+
+# we can see the mapping by this line of code too
+
+print(dict_one_hot_encoder.vocabulary_)
