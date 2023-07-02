@@ -38,3 +38,19 @@ new_dict = [{'interest': 'unknown_interest', 'occupation': 'retired'},
             {'interest': 'tech', 'occupation': 'unseen_occupation'}]
 new_encoded = dict_one_hot_encoder.transform(new_dict)
 print(new_encoded)
+
+# ordinal encoding with pandas
+
+import pandas as pd
+
+df = pd.DataFrame({'score': ['low',
+                             'high',
+                             'medium',
+                             'medium',
+                             'low']})
+print(df)
+
+mapping = {'low': 1, 'medium': 2, 'high': 3}
+df['score'] = df['score'].replace(mapping)
+
+print(df)
