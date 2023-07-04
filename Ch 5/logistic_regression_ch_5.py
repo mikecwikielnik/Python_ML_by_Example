@@ -34,5 +34,14 @@ plt.xlim(0, 1)
 plt.ylim(0, 7)
 plt.show()
 
+# plot sample cost vs y_hat (prediction), for y (truth) = 0
 
+y_hat = np.linspace(0, 1, 1000)
+cost = -np.log(1 - y_hat)
+plt.plot(y_hat, cost)
+plt.xlabel('prediction')
+plt.ylabel('cost')
+plt.xlim(0, 1)
+plt.ylim(0, 7)
+plt.show()
 
