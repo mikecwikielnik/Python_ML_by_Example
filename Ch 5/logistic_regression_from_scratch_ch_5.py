@@ -97,3 +97,12 @@ y_train = np.array([0,
 
 weights = train_logistic_regression(X_train, y_train, max_iter=1000, learning_rate=0.1, fit_intercept=True)
 
+# decreasing cost means that the model is being optimized over time
+
+X_test = np.array([[6, 1],
+                   [1, 3],
+                   [3, 1],
+                   [4, 5]])
+
+predictions = predict(X_test, weights)
+predictions
