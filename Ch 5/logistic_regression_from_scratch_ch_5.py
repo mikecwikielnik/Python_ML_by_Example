@@ -62,3 +62,12 @@ def train_logistic_regression(X_train, y_train, max_iter, learning_rate, fit_int
         if iteration % 100 == 0:
             print(compute_cost(X_train, y_train, weights))
     return weights
+
+# finally, we predict the results of new inputs using the trained model as follows:
+
+def predict(X, weights):
+    if X.shape[1] == weights.shape[0] - 1:
+        intercept = np.ones((X.shape[0], 1))
+        X = np.hstack((intercept, X))
+    return compute_prediction(X, weights)
+
