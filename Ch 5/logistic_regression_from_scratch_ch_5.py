@@ -92,6 +92,7 @@ y_train = np.array([0,
                     1,
                     1,
                     1,
+                    1,
                     1])
 
 weights = train_logistic_regression(X_train, y_train, max_iter=1000, learning_rate=0.1, fit_intercept=True)
