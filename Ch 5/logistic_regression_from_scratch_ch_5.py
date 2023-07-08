@@ -106,3 +106,14 @@ X_test = np.array([[6, 1],
 
 predictions = predict(X_test, weights)
 predictions
+
+# to visualize this, execute the following code:
+
+import matplotlib.pyplot as plt
+plt.scatter(X_train[:, 0], X_train[:, 1], c=['b'] * 5 + ['k'] * 5, marker = 'o')
+
+# blue dots are training samples from class 0, while black dots are those from class 1.
+# use 0.5 as the classification decision threshold:
+
+colours = ['k' if prediction >= 0.5 else 'b' for prediction in predictions]
+plt.scatter(X_test[:, 0], X_test[:, 1], marker='*', c=colours)
