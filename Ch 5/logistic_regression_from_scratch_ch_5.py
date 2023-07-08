@@ -117,3 +117,9 @@ plt.scatter(X_train[:, 0], X_train[:, 1], c=['b'] * 5 + ['k'] * 5, marker = 'o')
 
 colours = ['k' if prediction >= 0.5 else 'b' for prediction in predictions]
 plt.scatter(X_test[:, 0], X_test[:, 1], marker='*', c=colours)
+
+# blue stars are testing samples predicted from class 0, black stars are predicted from class 1
+
+plt.xlabel('x1')
+plt.xlabel('x2')
+plt.show()
