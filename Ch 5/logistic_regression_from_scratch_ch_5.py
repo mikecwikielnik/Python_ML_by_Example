@@ -160,3 +160,9 @@ start_time = timeit.default_timer()
 weights = train_logistic_regression(X_train_enc.toarray(), Y_train, max_iter = 10000, learning_rate = 0.01,
                                     fit_intercept = True)
 print(f"---{(timeit.default_timer() - start_time)}.3fs seconds ---")
+
+# the trained model performs on the testing set as follows:
+
+pred = predict(X_test_enc.toarray(), weights)
+from sklearn.metrics import roc_auc_score
+print(f'Training samples: {n_train}, AUC on testing set: {roc_auc_score(Y_test, pred):.3f}')
