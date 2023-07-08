@@ -19,3 +19,13 @@ def compute_prediction(X, weights):
     z = np.dot(X, weights)
     predictions = sigmoid(z)
     return predictions
+
+def update_weights_gd(X_train, y_train, weights, learning_rate):
+    """
+    update weights by one step
+    """
+    predictions = compute_prediction(X_train, weights)
+    weights_delta = np.dot(X_train.T, y_train - predictions)
+    m = y_train.shape[0]
+    weights += learning_rate / float(m) * weights_delta
+    return weights
