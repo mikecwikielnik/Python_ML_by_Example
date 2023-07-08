@@ -38,3 +38,27 @@ def compute_cost(X, y, weights):
     cost = np.mean(-y * np.log(predictions) - (1 - y) * np.log(1 - predictions))
     return cost
 
+# we connect all these functions to the model training function by doing the following:
+# 1) updating the weights vector in each iteration
+# 2) printing the current cost for every k iterations to ensure cost is decreasing
+
+def train_logistic_regression(X_train, y_train, max_iter, learning_rate, fit_intercept = False):
+    """Train a logistic regression model
+    Args:
+        X_train, y_train (numpy.ndarray, training data set)
+        max_iter (int, number of iterations)
+        learning_rate(float)
+        fit_intercept (bool, with an intercept w0 or not)
+    Returns:
+        numpy.ndarray, learned weights
+    """
+    if fit_intercept:
+        intercept = np.ones((X_train.shape[0], 1))
+        X_train = np.hstack((intercept, X_train))
+    weights = np.zeros(X_train.shape[1])
+    for iteration in range(max_iter):
+        weights = update_weights_gd(X_train, y_train, weights, learning_rate)
+        # check the cost for every 100 (for ex) iterations
+        if iteration % 100 == 0:
+            print(compute_cost(X_train, y_train, weights))
+    return weights
