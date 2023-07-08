@@ -152,3 +152,11 @@ enc = OneHotEncoder(handle_unknown='ignore')
 X_train_enc = enc.fit_transform(X_train)
 
 X_test_enc = enc.transform(X_test)
+
+# train a logistic regression model over 10000 iterations, at a learning rate of 0.01 with bias:
+
+import timeit
+start_time = timeit.default_timer()
+weights = train_logistic_regression(X_train_enc.toarray(), Y_train, max_iter = 10000, learning_rate = 0.01,
+                                    fit_intercept = True)
+print(f"---{(timeit.default_timer() - start_time)}.3fs seconds ---")
