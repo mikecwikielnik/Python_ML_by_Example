@@ -22,3 +22,8 @@ enc = OneHotEncoder(handle_unknown='ignore')
 X_train_enc = enc.fit_transform(X_train)
 
 X_test_enc = enc.transform(X_test)
+
+# # use scikit-learn package
+from sklearn.linear_model import SGDClassifier
+sgd_lr = SGDClassifier(loss = 'log', penalty=None, fit_intercept=True, max_iter=10, learning_rate='constant', eta0=0.01)
+sgd_lr.fit(X_train_enc.toarray(), Y_train)
