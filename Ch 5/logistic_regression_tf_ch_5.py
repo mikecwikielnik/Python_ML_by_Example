@@ -23,3 +23,9 @@ enc = OneHotEncoder(handle_unknown='ignore')
 X_train_enc = enc.fit_transform(X_train).toarray().astype('float32')
 X_test_enc = enc.transform(X_test).toarray().astype('float32')
 
+# we use the tf.data api to shuffle & batch data
+
+batch_size = 1000
+train_data = tf.data.Dataset.from_tensor_slices((X_train_enc, Y_train))
+train_data = train_data.repeat().shuffle(5000).batch(batch_size).prefetch(1)
+
