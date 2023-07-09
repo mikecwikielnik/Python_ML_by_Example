@@ -117,4 +117,16 @@ Y = digits.target
 from sklearn.model_selection import train_test_split
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
 
+# then combine grid search & cross-validation to find the optimal multiclass logistic regression model as follows:
 
+from sklearn.model_selection import GridSearchCV
+parameters = {'penalty': ['12', None],
+              'alpha': [1e-07, 1e-06, 1e-05, 1e-04],
+              'eta0': [0.01, 0.1, 1, 10]}
+
+sgd_lr = SGDClassifier(loss='log', learning_rate='constant', eta0=0.01, fit_intercept=True, max_iter=10)
+
+grid_search = GridSearchCV(sgd_lr, parameters, n_jobs=-1, cv=5)
+
+grid_search.fit(X_train, Y_train)
+print(grid_search.best_params_)
