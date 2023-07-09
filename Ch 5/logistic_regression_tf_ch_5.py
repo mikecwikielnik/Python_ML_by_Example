@@ -29,3 +29,9 @@ batch_size = 1000
 train_data = tf.data.Dataset.from_tensor_slices((X_train_enc, Y_train))
 train_data = train_data.repeat().shuffle(5000).batch(batch_size).prefetch(1)
 
+# we define the weights and bias of the logistic regression model:
+
+n_features = int(X_train_enc.shape[1])
+W = tf.Variable(tf.zeros([n_features, 1]))
+b = tf.Variable(tf.zeros([1]))
+
