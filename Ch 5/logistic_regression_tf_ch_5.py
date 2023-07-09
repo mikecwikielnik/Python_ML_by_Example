@@ -17,3 +17,9 @@ X_train = X[:n_train]
 Y_train = Y[:n_train].astype('float32')
 X_test = X[n_train:]
 Y_test = Y[n_train:].astype('float32')
+
+from sklearn.preprocessing import OneHotEncoder
+enc = OneHotEncoder(handle_unknown='ignore')
+X_train_enc = enc.fit_transform(X_train).toarray().astype('float32')
+X_test_enc = enc.transform(X_test).toarray().astype('float32')
+
