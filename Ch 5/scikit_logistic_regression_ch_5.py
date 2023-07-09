@@ -90,4 +90,6 @@ for i in range(10):
     y_train = Y_train[i*100000: (i+1)*100000]
     x_train_enc = enc.transform(x_train)
     sgd_lr_online.partial_fit(x_train_enc.toarray(), y_train, classes=[0, 1])
-    
+
+print(f"--- {(timeit.default_timer() - start_timme)}.3fs seconds ---")
+
