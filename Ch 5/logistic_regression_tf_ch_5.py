@@ -40,3 +40,14 @@ b = tf.Variable(tf.zeros([1]))
 
 learning_rate = 0.0008
 optimzier = tf.optimizers.Adam(learning_rate)
+
+# we define optimization process where we compute the current prediction and cost and
+# update the model coef following the computed gradients
+
+def run_optimization(x, y):
+    with tf.GradientTape() as g:
+        logits = tf.add(tf.matmul(x, W), b)[:, 0]
+        cost = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(labels = y, logits = logits))
+    gradients = g.gradient(cost, [W, b])
+    optimizer.apply_gradients(zip(gradients, [W, b]))
+
