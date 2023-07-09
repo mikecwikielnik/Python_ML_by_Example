@@ -36,3 +36,8 @@ sgd_lr.fit(X_train_enc.toarray(), Y_train)
 pred = sgd_lr.predict_proba(X_test_enc.toarray())[:, 1]
 print(f'Training samples: {n_train}, AUC on testing set: {roc_auc_score(Y_test, pred):.3f}')
 
+# ---------------------------------------
+# feature selection with L1 regularization
+sgd_lr_l1 = SGDClassifier(loss='log', penalty='l1', alpha=0.0001, fit_intercept=True, max_iter=10, learning_rate='constant', eta0=0.01)
+sgd_lr_l1.fit(X_train_enc.toarray(), Y_train)
+
