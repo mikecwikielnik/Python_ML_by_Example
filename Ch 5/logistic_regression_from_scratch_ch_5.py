@@ -207,4 +207,11 @@ def train_logistic_regression_sgd(X_train, y_train, max_iter, learning_rate, fit
             print(compute_cost(X_train, y_train, weights))
     return weights
 
-    
+# train the sgd model based on 100000 samples
+start_time = timeit.default_timer()
+weights = train_logistic_regression_sgd(X_train_enc.toarray(), Y_train, max_iter=10, learning_rate=0.01, 
+                                        fit_intercept=True)
+print(f"---{(timeit.default_timer() - start_time)}.3fs seconds ---")                        
+pred = predict(X_test_enc.toarray(), weights)
+print(f'Training samples: {n_train}, AUC on testing set: {roc_auc_score(Y_test, pred):.3f}')
+
