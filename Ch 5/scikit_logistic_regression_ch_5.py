@@ -130,3 +130,9 @@ grid_search = GridSearchCV(sgd_lr, parameters, n_jobs=-1, cv=5)
 
 grid_search.fit(X_train, Y_train)
 print(grid_search.best_params_)
+
+# to predict using the optimal model, we apply the following:
+
+sgd_lr_best = grid_search.best_estimator_
+accuracy = sgd_lr_best.score(X_test, Y_test)
+print(f'The accuracy on testing set is: {accuracy*100:.1f}%')
