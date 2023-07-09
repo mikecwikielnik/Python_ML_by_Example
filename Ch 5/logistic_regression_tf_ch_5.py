@@ -35,3 +35,8 @@ n_features = int(X_train_enc.shape[1])
 W = tf.Variable(tf.zeros([n_features, 1]))
 b = tf.Variable(tf.zeros([1]))
 
+# we then create a gradient descent optimizer that searches for the best coef by minimizing the loss
+# we herein use Adam as our optimizer
+
+learning_rate = 0.0008
+optimzier = tf.optimizers.Adam(learning_rate)
