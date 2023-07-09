@@ -44,3 +44,8 @@ sgd_lr_l1.fit(X_train_enc.toarray(), Y_train)
 # with the trained model, we obtain the absolute values of its coef
 coef_abs = np.abs(sgd_lr_l1.coef_)
 print(coef_abs)
+
+# bottom 10 weights and the corresponding 10 least important features
+print(np.sort(coef_abs)[0][:10])
+
+
