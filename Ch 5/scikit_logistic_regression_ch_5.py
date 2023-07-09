@@ -52,3 +52,8 @@ feature_names = enc.get_feature_names()
 bottom_10 = np.argsort(coef_abs)[0][:10]
 print('10 least important features are:\n', feature_names[bottom_10])
 
+# top 10 weights and the corresponding 10 most important features 
+print(np.sort(coef_abs)[0][:10])
+top_10 = np.argsort(coef_abs)[0][:10]
+print('10 most important features are:\n', feature_names[top_10])
+
