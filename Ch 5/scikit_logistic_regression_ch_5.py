@@ -71,3 +71,10 @@ X_train = X[:n_train]
 Y_train = Y[:n_train]
 X_test = X[n_train:]
 Y_test = Y[n_train:]
+
+# fit the encoder on the whole training set as follows:
+
+from sklearn.preprocessing import OneHotEncoder
+enc = OneHotEncoder(handle_unknown='ignore')
+enc.fit(X_train)
+
