@@ -81,3 +81,13 @@ enc.fit(X_train)
 # the number of iterations is set to 1 if using partial_fit
 sgd_lr_online = SGDClassifier(loss='log', penalty=None, fit_intercept=True, max_iter=1, learning_rate='constant', eta0=0.01)
 
+# loop over every 100000 samples & partially fit the model:
+import timeit
+start_time = timeit.default_timer()
+
+for i in range(10):
+    x_train = X_train[i*100000: (i+1)*100000]
+    y_train = Y_train[i*100000: (i+1)*100000]
+    x_train_enc = enc.transform(x_train)
+    sgd_lr_online.partial_fit(x_train_enc.toarray(), y_train, classes=[0, 1])
+    
