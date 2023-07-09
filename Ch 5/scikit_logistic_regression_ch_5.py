@@ -104,12 +104,17 @@ print(f'Training samples: {n_train * 10}, AUC on testing set: {roc_auc_score(Y_t
 # multiclass classification with logistic regression
 
 from sklearn import datasets
-digits = datasets.load_digits
+digits = datasets.load_digits()
 n_samples = len(digits.images)
 
 # as the image data is stored in 8*8 matrices, we need to flatten them, as follows:
 
 X = digits.images.reshape((n_samples, -1))
 Y = digits.target
+
+# we then split the data as follows:
+
+from sklearn.model_selection import train_test_split
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
 
 
