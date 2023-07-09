@@ -78,3 +78,6 @@ from sklearn.preprocessing import OneHotEncoder
 enc = OneHotEncoder(handle_unknown='ignore')
 enc.fit(X_train)
 
+# the number of iterations is set to 1 if using partial_fit
+sgd_lr_online = SGDClassifier(loss='log', penalty=None, fit_intercept=True, max_iter=1, learning_rate='constant', eta0=0.01)
+
