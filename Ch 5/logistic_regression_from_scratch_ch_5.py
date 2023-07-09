@@ -166,3 +166,21 @@ print(f"---{(timeit.default_timer() - start_time)}.3fs seconds ---")
 pred = predict(X_test_enc.toarray(), weights)
 from sklearn.metrics import roc_auc_score
 print(f'Training samples: {n_train}, AUC on testing set: {roc_auc_score(Y_test, pred):.3f}')
+
+# to implement SGD-based log regression, we slightly modify the update_weights_gd function:
+
+def update_weights_sgd(X_train, y_train, weights, learning_rate):
+    """ One weight update iteration: moving weights by one step based on each individual sample
+    Args:
+        X_train, y_train (numpy.ndarry, training data set)
+        weights (numpy.ndarray)
+        learning_rate (float)
+    Returns:
+        numpy.ndarray, updated weights
+    """
+    for X_each, y_each in zip(X_train, y_train):
+        prediction = compute_prediction(X_each, weights)
+        weights_delta = X_each.T * (y_each - prediction)
+        weights += learning_rate * weights_delta
+    return weights
+
