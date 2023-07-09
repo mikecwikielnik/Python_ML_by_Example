@@ -41,3 +41,6 @@ print(f'Training samples: {n_train}, AUC on testing set: {roc_auc_score(Y_test, 
 sgd_lr_l1 = SGDClassifier(loss='log', penalty='l1', alpha=0.0001, fit_intercept=True, max_iter=10, learning_rate='constant', eta0=0.01)
 sgd_lr_l1.fit(X_train_enc.toarray(), Y_train)
 
+# with the trained model, we obtain the absolute values of its coef
+coef_abs = np.abs(sgd_lr_l1.coef_)
+print(coef_abs)
