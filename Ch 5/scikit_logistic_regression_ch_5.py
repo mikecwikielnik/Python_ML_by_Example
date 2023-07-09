@@ -3,10 +3,13 @@ SGDClassifier module of scikit-learn:
 
 Liu, Yuxi (Hayden). Python Machine Learning By Example: Build intelligent systems using Python, TensorFlow 2, PyTorch, and scikit-learn, 3rd Edition (p. 168). Packt Publishing. Kindle Edition. 
 """
+import numpy as np
+from sklearn.metrics import roc_auc_score
+
 
 import pandas as pd
 n_rows = 300000
-df = pd.read_csv("train.csv", nrows=n_rows)
+df = pd.read_csv("train", nrows=n_rows)
 
 X = df.drop(['click', 'id', 'hour', 'device_id', 'device_ip'], axis=1).values
 Y = df['click'].values
