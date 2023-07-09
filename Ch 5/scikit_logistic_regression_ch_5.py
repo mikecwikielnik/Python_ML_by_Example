@@ -57,3 +57,17 @@ print(np.sort(coef_abs)[0][:10])
 top_10 = np.argsort(coef_abs)[0][:10]
 print('10 most important features are:\n', feature_names[top_10])
 
+# ---------------------------------------------
+# online learning
+
+n_rows = 100000 * 11
+df = pd.read_csv("train.csv", nrows=n_rows)
+
+X = df.drop(['click', 'id', 'hour', 'device_id', 'device_ip'], axis=1).values
+Y = df['click'].values
+
+n_train = 100000 * 10
+X_train = X[:n_train]
+Y_train = Y[:n_train]
+X_test = X[n_train:]
+Y_test = Y[n_train:]
