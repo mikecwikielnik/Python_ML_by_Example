@@ -91,7 +91,7 @@ for i in range(10):
     x_train_enc = enc.transform(x_train)
     sgd_lr_online.partial_fit(x_train_enc.toarray(), y_train, classes=[0, 1])
 
-print(f"--- {(timeit.default_timer() - start_timme)}.3fs seconds ---")
+print(f"--- {(timeit.default_timer() - start_time)}.3fs seconds ---")
 
 # apply the trained model on the testing set, the next 100k samples, as follows:
 
@@ -99,4 +99,11 @@ x_test_enc = enc.transform(X_test)
 
 pred = sgd_lr_online.predict_proba(x_test_enc.toarray())[:, 1]
 print(f'Training samples: {n_train * 10}, AUC on testing set: {roc_auc_score(Y_test, pred)}')
+
+# ----------------------------------
+# multiclass classification with logistic regression
+
+from sklearn import datasets
+digits = datasets.load_digits
+n_samples = len(digits.images)
 
