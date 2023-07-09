@@ -107,3 +107,9 @@ from sklearn import datasets
 digits = datasets.load_digits
 n_samples = len(digits.images)
 
+# as the image data is stored in 8*8 matrices, we need to flatten them, as follows:
+
+X = digits.images.reshape((n_samples, -1))
+Y = digits.target
+
+
