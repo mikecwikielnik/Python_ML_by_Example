@@ -6,7 +6,7 @@ Liu, Yuxi (Hayden). Python Machine Learning By Example: Build intelligent system
 
 import pandas as pd
 n_rows = 300000
-df = pd.read_csv("train", nrows=n_rows)
+df = pd.read_csv("train.csv", nrows=n_rows)
 
 X = df.drop(['click', 'id', 'hour', 'device_id', 'device_ip'], axis=1).values
 Y = df['click'].values
@@ -26,4 +26,10 @@ X_test_enc = enc.transform(X_test)
 # # use scikit-learn package
 from sklearn.linear_model import SGDClassifier
 sgd_lr = SGDClassifier(loss = 'log', penalty=None, fit_intercept=True, max_iter=10, learning_rate='constant', eta0=0.01)
+
+# train the model and test it
+
 sgd_lr.fit(X_train_enc.toarray(), Y_train)
+pred = sgd_lr.predict_proba(X_test_enc.toarray())[:, 1]
+print(f'Training samples: {n_train}, AUC on testing set: {roc_auc_score(Y_test, pred):.3f}')
+
