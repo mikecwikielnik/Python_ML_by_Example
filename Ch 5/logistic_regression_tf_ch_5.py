@@ -39,7 +39,7 @@ b = tf.Variable(tf.zeros([1]))
 # we herein use Adam as our optimizer
 
 learning_rate = 0.0008
-optimzier = tf.optimizers.Adam(learning_rate)
+optimizer = tf.optimizers.Adam(learning_rate)
 
 # we define optimization process where we compute the current prediction and cost and
 # update the model coef following the computed gradients
@@ -50,4 +50,14 @@ def run_optimization(x, y):
         cost = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(labels = y, logits = logits))
     gradients = g.gradient(cost, [W, b])
     optimizer.apply_gradients(zip(gradients, [W, b]))
+
+# we run the traininng for 6k steps (one step is with one batch of random samples):
+
+training_steps = 6000
+for step, (batch_x, batch_y) in enumerate(train_data.take(training_steps), 1):
+    run_optimization(batch_x, batch_y)
+    if step % 500 == 0:
+        logits = tf.add(tf.matmul(batch_x, W), b)[:, 0]
+        loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(labels = batch_y, logits = logits))
+        print("step: %i, loss: %f" % (step, loss))
 
