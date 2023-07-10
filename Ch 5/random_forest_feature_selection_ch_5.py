@@ -33,3 +33,9 @@ random_forest.fit(X_train_enc.toarray(), Y_train)
 
 feature_imp = random_forest.feature_importances_
 print(feature_imp)
+
+# bottom 10 weights & corresponding 10 least important features
+feature_names = enc.get_feature_names_out()
+print(np.sort(feature_imp)[:10])
+bottom_10 = np.argsort(feature_imp)[:10]
+print('10 least important features are:\n', feature_names[bottom_10])
