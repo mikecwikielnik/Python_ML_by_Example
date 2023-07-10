@@ -61,3 +61,12 @@ for step, (batch_x, batch_y) in enumerate(train_data.take(training_steps), 1):
         loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(labels = batch_y, logits = logits))
         print("step: %i, loss: %f" % (step, loss))
 
+# after the model is trained, we use it to make predictions on the testing set and report the AUC metric:
+
+logits = tf.add(tf.matmul(X_test_enc, W), b)[:, 0]
+pred = tf.nn.sigmoid(logits)
+auc_metric = tf.keras.metrics.AUC()
+auc_metric.update_state(Y_test, pred)
+
+print(f'AUC on testing set: {auc_metric.result().numpy():.3f}')
+
