@@ -29,3 +29,7 @@ from sklearn.ensemble import RandomForestClassifier
 random_forest = RandomForestClassifier(n_estimators=100, criterion='gini', min_samples_split=30, n_jobs=-1)
 random_forest.fit(X_train_enc.toarray(), Y_train)
 
+# after fitting the random forest model, we obtain the feature importance scores
+
+feature_imp = random_forest.feature_importances_
+print(feature_imp)
