@@ -25,4 +25,12 @@ def generate_features(df):
     df_new['low_1'] = df['Low'].shift(1)
     df_new['volume_1'] = df['Volume'].shift(1)
 
+    # 31 generated features
+    # average price
+    df_new['avg_price_5'] = df['Close'].rolling(5).mean().shift(1)
+    df_new['avg_price_30'] = df['Close'].rolling(21).mean().shift(1)
+    df_new['avg_price_365'] = df['Close'].rolling(252).mean().shift(1)
+    df_new['ratio_avg_price_5_30'] = df_new['avg_price_5'] / df_new['avg_price_30']
+    df_new['ratio_avg_price_5_365'] = df_new['avg_price_5'] / df_new['avg_price_365']
+    df_new['ratio_avg_price_30_365'] = df_new['avg_price_30'] / df_new['avg_price_365']
     
