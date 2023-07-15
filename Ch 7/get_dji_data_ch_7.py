@@ -34,3 +34,12 @@ def generate_features(df):
     df_new['ratio_avg_price_5_365'] = df_new['avg_price_5'] / df_new['avg_price_365']
     df_new['ratio_avg_price_30_365'] = df_new['avg_price_30'] / df_new['avg_price_365']
     
+    # average volume
+    df_new['avg_volume_5'] = df['Volume'].rolling(5).mean().shift(1)
+    df_new['avg_volume_30'] = df['Volume'].rolling(21).mean().shift(1)
+    df_new['avg_volume_365'] = df['Volume'].rolling(252).mean().shift(1)
+    df_new['ratio_avg_volume_5_30'] = df_new['avg_volume_5'] / df_new['avg_volume_30']
+    df_new['ratio_avg_volume_5_365'] = df_new['avg_volume_5'] / df_new['avg_volume_365']
+    df_new['ratio_avg_volume_30_365'] = df_new['avg_volume_30'] / df_new['avg_volume_365']
+
+    
