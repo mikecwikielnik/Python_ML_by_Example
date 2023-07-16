@@ -58,4 +58,13 @@ def generate_features(df):
     df_new['ratio_std_volume_5_365'] = df_new['std_volume_5'] / df_new['std_volume_365']
     df_new['ratio_std_volume_30_365'] = df_new['std_volume_30'] / df_new['std_volume_365']
 
-    
+    # return
+    df_new['return_1'] = ((df['Close'] - df['Close'].shift(1)) / df['Close'].shift(1)).shift(1)
+    df_new['return_5'] = ((df['Close'] - df['Close'].shift(1)) / df['Close'].shift(1)).shift(1)
+    df_new['return_30'] = ((df['Close'] - df['Close'].shift(1)) / df['Close'].shift(1)).shift(1)
+    df_new['return_365'] = ((df['Close'] - df['Close'].shift(1)) / df['Close'].shift(1)).shift(1)
+    df_new['moving_avg_5'] = df_new['return_1'].rolling(5).mean().shift(1)
+    df_new['moving_avg_30'] = df_new['return_1'].rolling(21).mean().shift(1)
+    df_new['moving_avg_365'] = df_new['return_1'].rolling(252).mean().shift(1)
+
+    # target
