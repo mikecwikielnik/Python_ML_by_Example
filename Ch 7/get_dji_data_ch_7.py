@@ -68,3 +68,7 @@ def generate_features(df):
     df_new['moving_avg_365'] = df_new['return_1'].rolling(252).mean().shift(1)
 
     # target
+    df_new['close'] = df['Close']
+    df_new = df_new.dropna(axis=0)
+    return df_new
+
