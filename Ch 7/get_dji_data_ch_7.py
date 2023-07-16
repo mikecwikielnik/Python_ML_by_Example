@@ -42,4 +42,20 @@ def generate_features(df):
     df_new['ratio_avg_volume_5_365'] = df_new['avg_volume_5'] / df_new['avg_volume_365']
     df_new['ratio_avg_volume_30_365'] = df_new['avg_volume_30'] / df_new['avg_volume_365']
 
+    # standard deviation of prices
+    df_new['std_price_5'] = df['Close'].rolling(5).std().shift(1)
+    df_new['std_price_30'] = df['Close'].rolling(21).std().shift(1)
+    df_new['std_price_365'] = df['Close'].rolling(252).std().shift(1)
+    df_new['ratio_std_price_5_30'] = df_new['std_price_5'] / df_new['std_price_30']
+    df_new['ratio_std_price_5_365'] = df_new['std_price_5'] / df_new['std_price_365']
+    df_new['ratio_std_price_30_365'] = df_new['std_price_30'] / df_new['std_price_365']
+
+    # standard deviation of volumes 
+    df_new['std_volume_5'] = df['Volume'].rolling(5).std().shift(1)
+    df_new['std_volume_30'] = df['Volume'].rolling(21).std().shift(1)
+    df_new['std_volume_365'] = df['Volume'].rolling(252).std().shift(1)
+    df_new['ratio_std_volume_5_30'] = df_new['std_volume_5'] / df_new['std_volume_30']
+    df_new['ratio_std_volume_5_365'] = df_new['std_volume_5'] / df_new['std_volume_365']
+    df_new['ratio_std_volume_30_365'] = df_new['std_volume_30'] / df_new['std_volume_365']
+
     
