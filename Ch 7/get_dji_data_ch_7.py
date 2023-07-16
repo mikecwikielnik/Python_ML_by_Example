@@ -8,7 +8,10 @@ import pandas as pd
 import yfinance as yf
 
 djia_data = yf.download("^DJi", start="2005-12-01", end="2005-12-10", group_by='tickers')
-djia_data
+djia_data.head()
+djia_data.index
+djia_data.dtypes
+list(djia_data.index)
 
 def generate_features(df):
     """
@@ -72,3 +75,6 @@ def generate_features(df):
     df_new = df_new.dropna(axis=0)
     return df_new
 
+data = generate_features(djia_data)
+print(data)
+      
