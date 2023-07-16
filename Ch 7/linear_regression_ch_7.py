@@ -25,3 +25,12 @@ def update_weights_gd(X_train, y_train, weights, learning_rate):
     weights += learning_rate / float(m) * weights_delta
     return weights
 
+def compute_cost(X, y, weights):
+    """
+    Compute the cost J(w)
+    """
+
+    predictions = compute_prediction(X, weights)
+    cost = np.mean((predictions - y) ** 2 / 2.0)
+    return cost
+
