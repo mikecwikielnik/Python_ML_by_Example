@@ -17,7 +17,7 @@ def compute_prediction(X, weights):
 
 def update_weights_gd(X_train, y_train, weights, learning_rate):
     """
-    Update weights by one step and return updated wights
+    Update weights by one step and return updated weights
     """
     predictions = compute_prediction(X_train, weights)
     weights_delta = np.dot(X_train.T, y_train - predictions)
