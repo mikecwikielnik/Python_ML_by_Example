@@ -99,3 +99,15 @@ num_test = 30
 X_train = diabetes.data [:-num_test, :]
 y_train = diabetes.target[:-num_test]
 
+# 500 iterations, at a learning rate of 1 based on intercept-included weights (cost display per 500 itr)
+
+weights = train_linear_regression(X_train, y_train, max_iter=5000, learning_rate=1, fit_intercept=True)
+
+X_test = diabetes.data[-num_test:, :]
+y_test = diabetes.target[-num_test:]
+
+predictions = predict(X_test, weights)
+
+print(predictions)
+print(y_test)
+
