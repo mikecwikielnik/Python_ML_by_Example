@@ -127,3 +127,8 @@ import tensorflow as tf
 layer0 = tf.keras.layers.Dense(units=1, input_shape=[X_train.shape[1]])
 model = tf.keras.Sequential(layer0)
 
+# now we specify the loss fn, the MSE, & gradient descent optimizer Adam w/ a learning_rate of 1
+
+model.compile(loss='mean_squared_error',
+            optimizer=tf.keras.optimizers.Adam(1))
+
