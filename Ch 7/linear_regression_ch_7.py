@@ -34,3 +34,27 @@ def compute_cost(X, y, weights):
     cost = np.mean((predictions - y) ** 2 / 2.0)
     return cost
 
+"""
+Now put all the fn together w/ a model training fn by doing the following
+
+1) update the weight vector in each iteration
+
+2) print out current cost per k iterations to ensure cost is decreasing 
+"""
+
+def train_linear_regression(X_train, y_train, max_iter, learning_rate, fit_intercept=False):
+    """
+    Train a linear regression model w/ gradient descent, and return trained model
+    """
+
+    if fit_intercept:
+        intercept = np.ones((X_train.shape[0], 1))
+        X_train = np.hstack((intercept, X_train))
+    weights = np.zeros(X_train.shape[1])
+    for iteration in range(max_iter):
+        weights = update_weights_gd(X_train, y_train, weights, learning_rate)
+        # Check the cost for every 100 (or k) iterations 
+        if iteration % 100 == 0:
+            print(compute_cost(X_train, y_train, weights))
+    return weights
+
