@@ -74,3 +74,16 @@ y_train = np.array((5.5, 1.6, 2.2, 3.7, 0.8, 5.2, 1.5, 5.3, 4.4, 6.8))
 
 weights = train_linear_regression(X_train, y_train, max_iter=100, learning_rate=0.01, fit_intercept=True)
 
+# check model performance on new samples 
+
+X_test = np.array([[1.3], [3.5], [5.2], [2.8]])
+
+predictions = predict(X_test, weights)
+
+import matplotlib.pyplot as plt
+plt.scatter(X_train[:, 0], y_train, marker='o', c='b')
+plt.scatter(X_test[:, 0], predictions, marker='o', c='k')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.show()
+
