@@ -114,6 +114,12 @@ print(y_test)
 # Directly use SGDRegressor from scikit-learn 
 
 from sklearn.linear_model import SGDRegressor
-regressor = SGDRegressor(loss='squared_loss', penalty='l2', alpha=0.0001, learning_rate='constant', eta=0.01,
+regressor = SGDRegressor(loss='squared_loss', penalty='l2', alpha=0.0001, learning_rate='constant', eta0=0.01,
                         max_iter=1000)
+regressor.fit(X_train, y_train)
+predictions = regressor.predict(X_test)
+print(predictions)
+
+
+# implementing linear regression with TensorFlow
 
