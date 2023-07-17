@@ -27,11 +27,19 @@ def weighted_mse(groups):
     total = sum(len(group) for group in groups)
     weighted_sum = 0.0
     for group in groups:
-        weighted_mse += len(group) / float(total) * mse(group)
-    return weighted_mse
+        weighted_sum += len(group) / float(total) * mse(group)
+    return weighted_sum
 
 # test things out by executing the following commands:
 
 print(f'{mse(np.array([1, 2, 3])):.4f}')
 print(f'{weighted_mse([np.array([1, 2, 3]), np.array([1, 2])]):.4f}')
+
+# to build the house price regression tree, we first exhaust all possible pairs of feature and value, & 
+# we compute the corresponding mse
+
+print(f'type-semi: {weighted_mse([np.array([600, 400, 700]), np.array([700, 800])]):.4f}')
+print(f'bedroom-2: {weighted_mse([np.array([700, 400]), np.array([600, 800, 700])]):.4f}')
+print(f'bedroom-3: {weighted_mse([np.array([600, 800]), np.array([700, 400, 700])]):.4f}')
+print(f'bedroom-4: {weighted_mse([np.array([700]), np.array([600, 700, 800, 400])]):.4f}')
 
