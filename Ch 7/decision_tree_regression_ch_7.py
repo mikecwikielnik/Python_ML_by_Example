@@ -43,3 +43,17 @@ print(f'bedroom-2: {weighted_mse([np.array([700, 400]), np.array([600, 800, 700]
 print(f'bedroom-3: {weighted_mse([np.array([600, 800]), np.array([700, 400, 700])]):.4f}')
 print(f'bedroom-4: {weighted_mse([np.array([700]), np.array([600, 700, 800, 400])]):.4f}')
 
+# the lowest mse is achieved w/ 'type, semi' pair,
+# the root node is formed here by this splitting point.
+
+# we can go further down by constructing the second level
+# from the right branch (the left branch be split any more)
+
+print(f'bedroom-2: {weighted_mse([np.array([]), np.array([600, 400, 700])]):.4f}')
+print(f'bedroom-3: {weighted_mse([np.array([400]), np.array([600, 700])]):.4f}')
+print(f'bedroom-4: {weighted_mse([np.array([400, 600]), np.array([700])]):.4f}')
+
+
+
+
+
