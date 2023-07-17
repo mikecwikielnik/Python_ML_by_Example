@@ -82,5 +82,24 @@ def split_node(X, y, index, value):
     right = [X[mask, :], y[mask]]
     return left, right
 
+# next, we define the greedy search function
+# trying out all possible splits & returning the one with the 
+# least weighted MSE
+
+def get_best_split(X, y):
+    """
+    Obtain the best splitting point and resulting children for the data set X, y
+    @return: {index: index of the feature, value: feature value, children: left, right children}
+    """
+
+    best_index, best_value, best_score, children = None, None, 1e10, None
+    
+    for index in range(len(X[0])):
+        for value in np.sort(np.unique(X[:, index])):
+            groups = split_node(X, y, index, value)
+            impurity = weighted_mse([groups[0][1], groups[1][1]])
+            if impurity < best_score:
+                best_index, best_value, best_score, children = index, value, impurity, groups
+    return {'index': best_index, 'value': best_value, 'children': children}
 
 
