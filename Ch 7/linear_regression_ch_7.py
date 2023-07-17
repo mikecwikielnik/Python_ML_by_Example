@@ -58,3 +58,11 @@ def train_linear_regression(X_train, y_train, max_iter, learning_rate, fit_inter
             print(compute_cost(X_train, y_train, weights))
     return weights
 
+# finally predict the results of new input values using the trained model
+
+def predict(X, weights):
+    if X.shape[1] == weights.shape[0] - 1:
+        intercept = np.ones((X.shape[0], 1))
+        x = np.hstack((intercept, X))
+    return compute_prediction(X, weights)        
+
