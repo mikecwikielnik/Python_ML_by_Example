@@ -30,3 +30,8 @@ def weighted_mse(groups):
         weighted_mse += len(group) / float(total) * mse(group)
     return weighted_mse
 
+# test things out by executing the following commands:
+
+print(f'{mse(np.array([1, 2, 3])):.4f}')
+print(f'{weighted_mse([np.array([1, 2, 3]), np.array([1, 2])]):.4f}')
+
