@@ -87,3 +87,15 @@ plt.xlabel('x')
 plt.ylabel('y')
 plt.show()
 
+# our model predicts new samples
+# lets try it on another dataset, the diabetes dataset from scikit-learn
+
+from sklearn import datasets
+
+diabetes = datasets.load_diabetes()
+print(diabetes.data.shape)
+
+num_test = 30
+X_train = diabetes.data [:-num_test, :]
+y_train = diabetes.target[:-num_test]
+
