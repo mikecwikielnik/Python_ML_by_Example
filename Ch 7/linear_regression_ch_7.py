@@ -72,3 +72,5 @@ X_train = np.array([[6], [2], [3], [4], [1], [5], [2], [6], [4], [7]])
 
 y_train = np.array((5.5, 1.6, 2.2, 3.7, 0.8, 5.2, 1.5, 5.3, 4.4, 6.8))
 
+weights = train_linear_regression(X_train, y_train, max_iter=100, learning_rate=0.01, fit_intercept=True)
+
