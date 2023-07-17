@@ -135,3 +135,9 @@ model.compile(loss='mean_squared_error',
 # now we train the model for 100 iterations
 
 model.fit(X_train, y_train, epochs=100, verbose=True)
+
+# this prints out the loss for every iteration. finally, we make predictions
+# using the trained model. 
+
+predictions = model.predict(X_test)[:, 0]
+print(predictions)
