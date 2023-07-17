@@ -123,3 +123,7 @@ print(predictions)
 
 # implementing linear regression with TensorFlow
 
+import tensorflow as tf
+layer0 = tf.keras.layers.Dense(units=1, input_shape=[X_train.shape[1]])
+model = tf.keras.Sequential(layer0)
+
