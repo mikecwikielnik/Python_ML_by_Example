@@ -66,3 +66,9 @@ def predict(X, weights):
         x = np.hstack((intercept, X))
     return compute_prediction(X, weights)        
 
+# a small example
+
+X_train = np.array([[6], [2], [3], [4], [1], [5], [2], [6], [4], [7]])
+
+y_train = np.array((5.5, 1.6, 2.2, 3.7, 0.8, 5.2, 1.5, 5.3, 4.4, 6.8))
+
