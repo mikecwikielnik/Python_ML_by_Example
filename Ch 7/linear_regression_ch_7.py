@@ -132,3 +132,6 @@ model = tf.keras.Sequential(layer0)
 model.compile(loss='mean_squared_error',
             optimizer=tf.keras.optimizers.Adam(1))
 
+# now we train the model for 100 iterations
+
+model.fit(X_train, y_train, epochs=100, verbose=True)
