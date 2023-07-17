@@ -53,7 +53,34 @@ print(f'bedroom-2: {weighted_mse([np.array([]), np.array([600, 400, 700])]):.4f}
 print(f'bedroom-3: {weighted_mse([np.array([400]), np.array([600, 700])]):.4f}')
 print(f'bedroom-4: {weighted_mse([np.array([400, 600]), np.array([700])]):.4f}')
 
+# w/ the second splitting point specificied by 'bedroom, 3' (atleast 3 bedrooms or not)
+# w/ the lowest mse. 
 
+#-------------- implementing decision tree regression --------------------------
+
+# the node splitting utility function is the same as chapter 5
+# which separates samples in a node into left, right branches
+# based on a feature and value pair
+
+def split_node(X, y, index, value):
+    """
+    Split data set X, y based on a feature and a value
+    @param index: index of the feature used for splitting
+    @param value: value of the feature used for splitting
+    @return: left and right child, a child is in the format of [X, y]
+    """
+
+    x_index = X[:, index]
+    # if this feature is numerical
+    if type(X[0, index]) in [int, float]:
+        mask = x_index >= value
+    # if the feature is categorical
+    else:
+        mask = x_index == value
+    # split into left and right child
+    left = [X[~mask, :], y[~mask]]
+    right = [X[mask, :], y[mask]]
+    return left, right
 
 
 
