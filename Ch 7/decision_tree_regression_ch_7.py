@@ -102,4 +102,11 @@ def get_best_split(X, y):
                 best_index, best_value, best_score, children = index, value, impurity, groups
     return {'index': best_index, 'value': best_value, 'children': children}
 
+# when a stop criteria is met, the process at a node stops, and
+# the mean value of the sample targets will be assigned to this terminal node:
+
+def get_leaf(targets):
+    # Obtain the leaft as the mean of the targets
+    return np.mean(targets)
+
 
