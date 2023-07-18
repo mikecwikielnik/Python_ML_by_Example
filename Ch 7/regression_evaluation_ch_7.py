@@ -58,3 +58,12 @@ regressor_best = grid_search.best_estimator_
 
 predictions = regressor_best.predict(X_test)
 
+# we evaluate the performance on testing sets based on the MSE, MAE, & R^2
+
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+
+print(mean_squared_error(y_test, predictions))
+
+print(mean_absolute_error(y_test, predictions))
+
+print(r2_score(y_test, predictions))
