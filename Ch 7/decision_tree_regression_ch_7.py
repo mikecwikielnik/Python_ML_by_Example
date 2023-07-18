@@ -163,3 +163,12 @@ def split(node, max_depth, min_size, depth):
             node['right'] = result
             split(node['right'], max_depth, min_size, depth + 1)
 
+# the entry point of the regression tree construction is as follows:
+
+def train_tree(X_train, y_train, max_depth, min_size):
+    root = get_best_split(X_train, y_train)
+    split(root, max_depth, min_size, 1)
+    return root
+
+# now, lets test it with a hand-calculated example
+
