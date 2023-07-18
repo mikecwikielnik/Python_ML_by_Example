@@ -202,5 +202,11 @@ def visualize_tree(node, depth=0):
     else:
         print('{}[{}]'.format(depth * ' ', node))
 
+# to verify the trained tree is identical to what we constructed by hand,
+# we write a functino displaying the tree
 
-    
+tree = train_tree(X_train, y_train, 2, 2)
+visualize_tree
+
+
+# ---------------- boston house prices example -----------------
