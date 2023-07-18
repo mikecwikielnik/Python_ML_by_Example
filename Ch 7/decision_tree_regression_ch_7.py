@@ -172,3 +172,35 @@ def train_tree(X_train, y_train, max_depth, min_size):
 
 # now, lets test it with a hand-calculated example
 
+X_train = np.array([['semi', 3],
+                    ['detached', 2],
+                    ['detached', 3],
+                    ['semi', 2],
+                    ['semi', 4]], dtype=object)
+
+y_train = np.array([600, 700, 800, 400, 700])
+
+tree = train_tree(X_train, y_train, 2, 2)
+
+# to verify the trained tree is identical to what we constructed by hand, 
+# we write a function displaying the tree:
+
+CONDITION = {'numerical': {'yes': '>=', 'no': '<'},
+             'categorical': {'yes': 'is', 'no': 'is not'}}
+def visualize_tree(node, depth=0):
+    if isinstance(node, dict):
+        if type(node['value']) in [int, float]:
+            condition = CONDITION['numerical']
+        else:
+            condition = CONDITION['categorical']
+        print('{}|- X{} {} {}'.format(depth * ' ', node['index'] + 1, condition['no'], node['value']))
+        if 'left' in node:
+            visualize_tree(node['left'], depth + 1)
+        print('{}|- X{} {} {}'.format(depth * ' ', node['index'] + 1, condition['yes'], node['value']))
+        if 'right' in node:
+            visualize_tree(node['right'], depth + 1)
+    else:
+        print('{}[{}]'.format(depth * ' ', node))
+
+
+    
