@@ -22,6 +22,10 @@ in a model relative to the number of data points.
 """
 
 from sklearn import datasets
+
+# we will work on the diabetes dataset again & fine-tune the parameters of the 
+# linear regression model using the grid search technique
+
 diabetes = datasets.load_diabetes()
 num_test = 30   # the last 30 samples as testing set
 X_train = diabetes.data[:-num_test, :]
@@ -44,6 +48,13 @@ regressor = SGDRegressor(loss = 'squared_error',
                          random_state = 42)
 grid_search = GridSearchCV(regressor, param_grid, cv = 3)
 
+# we obtain the optimal set of parameters
+
 grid_search.fit(X_train, y_train)
 print(grid_search.best_params_)
 regressor_best = grid_search.best_estimator_
+
+# we predict the testing set with the optimal model
+
+predictions = regressor_best.predict(X_test)
+
