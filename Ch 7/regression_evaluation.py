@@ -20,7 +20,7 @@ param_grid = {
 
 from sklearn.linear_model import SGDRegressor
 from sklearn.model_selection import GridSearchCV
-regressor = SGDRegressor(loss='squared_loss',
+regressor = SGDRegressor(loss='squared_error',
                          learning_rate='constant',
                          random_state=42)
 grid_search = GridSearchCV(regressor, param_grid, cv=3)

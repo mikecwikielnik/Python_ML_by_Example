@@ -39,10 +39,11 @@ param_grid = {
 from sklearn.linear_model import SGDRegressor
 from sklearn.model_selection import GridSearchCV
 
-regressor = SGDRegressor(loss = 'squared_loss',
+regressor = SGDRegressor(loss = 'squared_error',
                          learning_rate = 'constant',
                          random_state = 42)
 grid_search = GridSearchCV(regressor, param_grid, cv = 3)
 
-
-
+grid_search.fit(X_train, y_train)
+print(grid_search.best_params_)
+regressor_best = grid_search.best_estimator_
