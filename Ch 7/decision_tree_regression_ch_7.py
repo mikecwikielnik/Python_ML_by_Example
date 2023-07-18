@@ -210,3 +210,23 @@ visualize_tree
 
 
 # ---------------- boston house prices example -----------------
+
+# directly use DecisionTreeRegressor from scikit-learn
+from sklearn import datasets
+boston = datasets.load_boston()
+
+num_test = 10   # the last 10 samples as testing set
+
+X_train = boston.data[:-num_test, :]
+y_train = boston.target[:-num_test]
+X_test = boston.data[-num_test:, :]
+y_test = boston.target[-num_test:]
+
+from sklearn.tree import DecisionTreeClassifier
+regressor = DecisionTreeClassifier(max_depth = 10, min_samples_split=3)
+
+regressor.fit(X_train, y_train)
+predictions = regressor.predict(X_test)
+print(predictions)
+print(y_test)
+
