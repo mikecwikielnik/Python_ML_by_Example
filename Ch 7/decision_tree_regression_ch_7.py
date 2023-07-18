@@ -230,3 +230,9 @@ predictions = regressor.predict(X_test)
 print(predictions)
 print(y_test)
 
+from sklearn.ensemble import RandomForestClassifier
+regressor = RandomForestClassifier(n_estimators=100, max_depth=10, min_samples_split=3)
+regressor.fit(X_train, y_train)
+predictions = regressor.predict(X_test)
+print(predictions)
+
