@@ -173,4 +173,20 @@ svr = SVR()
 grid_search = GridSearchCV(svr, param_grid, cv=2, scoring='r2')
 grid_search.fit(X_scaled_train, y_train)
 
+# select the best SVR model & make predictions of the testing samples
+
+print(grid_search.best_params_)
+
+svr_best = grid_search.best_estimator_
+
+predictions_svr = svr_best.predict(X_scaled_test)
+
+print(f'MSE: {mean_squared_error(y_test, predictions_svr):.3f}')
+print(f'MAE: {mean_absolute_error(y_test, predictions_svr):.3f}')
+print(f'R^2: {r2_score(y_test, predictions_svr):.3f}')
+
+# with SVR, we got a R^2 of 0.974 on the testing set
+
+# a nice visualization is produced from the chunk of code below
+
 
