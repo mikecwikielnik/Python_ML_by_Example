@@ -99,4 +99,11 @@ print(y_test)
 
 # we just made a neural network from scratch, time to do it with scikit-learn
 
+# we utilize the MLPRegressor class (multi-layer perceptron, a nickname for neural networks)
+
+from sklearn.neural_network import MLPRegressor
+
+nn_scikit = MLPRegressor(hidden_layer_sizes=(16, 8), activation='relu', solver='adam',
+                         learning_rate_init=0.001, random_state=42, max_iter=2000)
+
 
