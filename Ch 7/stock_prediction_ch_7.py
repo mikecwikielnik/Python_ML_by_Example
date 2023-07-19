@@ -168,3 +168,9 @@ param_grid = [
 # again, to work around feature scale disparity, we use the 
 # rescaled data to train the SVR model
 
+from sklearn.svm import SVR 
+svr = SVR()
+grid_search = GridSearchCV(svr, param_grid, cv=2, scoring='r2')
+grid_search.fit(X_scaled_train, y_train)
+
+
