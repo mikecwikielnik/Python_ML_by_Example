@@ -140,3 +140,9 @@ rf = RandomForestRegressor(n_estimators=100, n_jobs=-1, max_features='auto', ran
 grid_search = GridSearchCV(rf, param_grid, cv=5, scoring='r2', n_jobs=-1)
 grid_search.fit(X_train, y_train)
 
+# select the best regression forest model and make predictions of the testing samples
+
+print(grid_search.best_params_)
+rf_best = grid_search.best_estimator_
+
+predictions_rf = rf_best.predict(X_test)
