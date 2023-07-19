@@ -189,4 +189,15 @@ print(f'R^2: {r2_score(y_test, predictions_svr):.3f}')
 
 # a nice visualization is produced from the chunk of code below
 
+import matplotlib.pyplot as plt
+plt.plot(data_test.index, y_test, c='k')
+plt.plot(data_test.index, predictions_lr, c='b')
+plt.plot(data_test.index, predictions_rf, c='r')
+plt.plot(data_test.index, predictions_svr, c='g')
+plt.xticks(range(0, 252, 10), rotation=60)
+plt.ylabel('Date')
+plt.ylabel('Close price')
+plt.legend(['Truth', 'Linear Regression', 'Random Forest', 'SVR'])
+plt.show()
+
 
