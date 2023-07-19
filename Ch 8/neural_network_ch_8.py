@@ -122,3 +122,10 @@ print(np.mean((y_test - predictions) ** 2))
 # we just implemented a neural network w/ scikit-learn. 
 # now lets do it with tensorflow
 
+# tensorflow implementation of neural network
+
+# first, we import the necessary modules, & set a random seed, which is recomended for reproducible modeling
+
+import tensorflow as tf
+from tensorflow import keras
+
