@@ -54,6 +54,8 @@ def train(X, y, n_hidden, learning_rate, n_iter):
     model = {'W1': W1, 'b1': b1, 'W2': W2, 'b2': b2}
     return model
 
+# define a prediction tn, which takes in a model & produce the regression results
+
 # data normalization here. 
 # we standardize the input data by removing the mean & scaling to unit variance
 
@@ -79,3 +81,4 @@ learning_rate = 0.1
 n_iter = 2000
 
 model = train(X_train, y_train, n_hidden, learning_rate, n_iter)
+
