@@ -110,3 +110,11 @@ lr = SGDRegressor(penalty = '12', max_iter=1000, random_state=42)
 grid_search = GridSearchCV(lr, param_grid, cv=5, scoring='r2')
 grid_search.fit(X_scaled_train, y_train)
 
+# select the best linear regression model and make predictions of the testing samples
+
+print(grid_search.best_params_)
+
+lr_best = grid_search.best_estimator_
+
+predictions_lr = lr_best.predict(X_scaled_test)
+
