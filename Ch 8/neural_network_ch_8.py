@@ -54,6 +54,15 @@ def train(X, y, n_hidden, learning_rate, n_iter):
     model = {'W1': W1, 'b1': b1, 'W2': W2, 'b2': b2}
     return model
 
+def predict(x, model):
+    W1 = model['W1']
+    b1 = model['b1']
+    W2 = model['W2']
+    b2 = model['b2']
+    A2 = sigmoid(np.matmul(x, W1) + b1)
+    A3 = np.matmul(A2, W2) + b2
+    return A3
+
 # define a prediction tn, which takes in a model & produce the regression results
 
 # data normalization here. 
@@ -81,4 +90,6 @@ learning_rate = 0.1
 n_iter = 2000
 
 model = train(X_train, y_train, n_hidden, learning_rate, n_iter)
+
+# finally, we apply the trained model on the testing set
 
