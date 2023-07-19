@@ -118,3 +118,13 @@ lr_best = grid_search.best_estimator_
 
 predictions_lr = lr_best.predict(X_scaled_test)
 
+# measure the prediction performance via the MSE, MAE, and R2
+
+print(f'MSE: {mean_squared_error(y_test, predictions_lr):.3f}')
+print(f'MAE: {mean_absolute_error(y_test, predictions_lr):.3f}')
+print(f'R^2: {r2_score(y_test, predictions_lr):.3f}')
+
+# answer: R^2 is 0.964 with this fine-tuned lin reg model
+
+# experiment with random forest
+
