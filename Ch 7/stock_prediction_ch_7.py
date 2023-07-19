@@ -128,3 +128,15 @@ print(f'R^2: {r2_score(y_test, predictions_lr):.3f}')
 
 # experiment with random forest
 
+param_grid = {
+    'max_depth': [30, 50],
+    'min_samples_split': [2, 5, 10],
+    'min_samples_leaf': [3, 5]
+}
+
+from sklearn.ensemble import RandomForestRegressor
+
+rf = RandomForestRegressor(n_estimators=100, n_jobs=-1, max_features='auto', random_state=42)
+grid_search = GridSearchCV(rf, param_grid, cv=5, scoring='r2', n_jobs=-1)
+grid_search.fit(X_train, y_train)
+
