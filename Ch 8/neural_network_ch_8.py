@@ -106,4 +106,13 @@ from sklearn.neural_network import MLPRegressor
 nn_scikit = MLPRegressor(hidden_layer_sizes=(16, 8), activation='relu', solver='adam',
                          learning_rate_init=0.001, random_state=42, max_iter=2000)
 
+# hidden_layer_sizes represents the number of hidden neurons.
+# two hidden layers w/ 16 & 8 nodes. ReLu activation is used
+
+# we fit the neural network model on the training set and predict on the testing data
+
+nn_scikit.fit(X_train, y_train)
+predictions = nn_scikit.predict(X_test)
+print(predictions)
+
 
