@@ -54,3 +54,20 @@ def train(X, y, n_hidden, learning_rate, n_iter):
     model = {'W1': W1, 'b1': b1, 'W2': W2, 'b2': b2}
     return model
 
+# data normalization here. 
+# we standardize the input data by removing the mean & scaling to unit variance
+
+from sklearn import datasets
+boston = datasets.load_boston()
+num_test = 10 # the last 10 samples as testing set
+
+from sklearn import preprocessing
+scaler = preprocessing.StandardScaler()
+
+X_train = boston.data[:-num_test, :]
+X_train = scaler.fit_transform(X_train)
+y_train = boston.target[:-num_test].reshape(-1, 1)
+X_test = boston.data[-num_test:, :]
+X_test = scaler.transform(X_test)
+y_test = boston.target[-num_test:]
+
