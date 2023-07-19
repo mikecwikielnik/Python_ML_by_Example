@@ -93,3 +93,5 @@ model = train(X_train, y_train, n_hidden, learning_rate, n_iter)
 
 # finally, we apply the trained model on the testing set
 
+predictions = predict(X_test, model)
+
