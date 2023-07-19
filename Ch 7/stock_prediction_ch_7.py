@@ -75,3 +75,23 @@ end_train = '2018-12-31'
 start_test = '2019-01-01'
 end_test = '2019-12-31'
 
+data_train = data.loc[start_train:end_train]
+X_train = data_train.drop('close', axis=1).values
+y_train = data_train['close'].values
+
+print(X_train.shape)
+print(y_train.shape)
+
+data_test = data.loc[start_test:end_test]
+X_test = data_test.drop('close', axis=1).values
+y_test = data_test['close'].values
+
+print(X_test.shape)
+
+# first experiment with linear regression
+
+scaler = StandardScaler()
+
+X_scaled_train = scaler.fit_transform(X_train)
+X_scaled_test = scaler.transform(X_test)
+
