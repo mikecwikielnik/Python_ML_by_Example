@@ -115,4 +115,10 @@ nn_scikit.fit(X_train, y_train)
 predictions = nn_scikit.predict(X_test)
 print(predictions)
 
+# we calculate the MSE on the prediction
+
+print(np.mean((y_test - predictions) ** 2))
+
+# we just implemented a neural network w/ scikit-learn. 
+# now lets do it with tensorflow
 
