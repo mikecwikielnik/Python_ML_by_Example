@@ -71,3 +71,11 @@ X_test = boston.data[-num_test:, :]
 X_test = scaler.transform(X_test)
 y_test = boston.target[-num_test:]
 
+# w/ the scaled dataset, we train a one-layer neural network 
+# with 20 hidden units, a 0.1 learning ratae, 2k iterations
+
+n_hidden = 20
+learning_rate = 0.1
+n_iter = 2000
+
+model = train(X_train, y_train, n_hidden, learning_rate, n_iter)
