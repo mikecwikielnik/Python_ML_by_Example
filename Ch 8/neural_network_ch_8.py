@@ -94,4 +94,9 @@ model = train(X_train, y_train, n_hidden, learning_rate, n_iter)
 # finally, we apply the trained model on the testing set
 
 predictions = predict(X_test, model)
+print(predictions)
+print(y_test)
+
+# we just made a neural network from scratch, time to do it with scikit-learn
+
 
