@@ -146,3 +146,9 @@ print(grid_search.best_params_)
 rf_best = grid_search.best_estimator_
 
 predictions_rf = rf_best.predict(X_test)
+
+
+print(f'MSE: {mean_squared_error(y_test, predictions_rf):.3f}')
+print(f'MAE: {mean_absolute_error(y_test, predictions_rf):.3f}')
+print(f'R^2: {r2_score(y_test, predictions_rf):.3f}')
+
