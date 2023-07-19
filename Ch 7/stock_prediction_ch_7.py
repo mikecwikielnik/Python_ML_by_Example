@@ -92,6 +92,21 @@ print(X_test.shape)
 
 scaler = StandardScaler()
 
+# rescale both sets with scaler 
+
 X_scaled_train = scaler.fit_transform(X_train)
 X_scaled_test = scaler.transform(X_test)
+
+# now we search for sgd-based lin reg with the optimal set of parameters
+# 12 regularization, 1k iterations, tune the regularization term multiplie-alpha, initial learning rate eta0
+
+param_grid = {
+    "alpha": [1e-4, 3e-4, 1e-3],
+    "eta0": [0.01, 0.03, 0.1]
+}
+
+from sklearn.linear_model import SGDRegressor
+lr = SGDRegressor(penalty = '12', max_iter=1000, random_state=42)
+grid_search = GridSearchCV(lr, param_grid, cv=5, scoring='r2')
+grid_search.fit(X_scaled_train, y_train)
 
