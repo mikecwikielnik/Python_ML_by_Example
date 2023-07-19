@@ -152,3 +152,19 @@ print(f'MSE: {mean_squared_error(y_test, predictions_rf):.3f}')
 print(f'MAE: {mean_absolute_error(y_test, predictions_rf):.3f}')
 print(f'R^2: {r2_score(y_test, predictions_rf):.3f}')
 
+# r^2 is 0.647
+
+# experiment with svr
+
+# SVR doesn't work well on data with feature scale disparity
+
+param_grid = [
+    {'kernel': ['linear'], 'C': [100, 300, 500],
+     'epsilon': [0.00003, 0.0001]},
+     {'kernel': ['rbf'], 'gamma': [1e-3, 1e-4],
+      'C': [10, 100, 1000], 'epsilon': [0.00003, 0.0001]}
+]
+
+# again, to work around feature scale disparity, we use the 
+# rescaled data to train the SVR model
+
