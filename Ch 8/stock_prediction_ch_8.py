@@ -122,3 +122,14 @@ model.compile(loss='mean_squared_error',
 # after defining the model, we now train it against the training set
 
 model.fit(X_scaled_train, y_train, epochs=100, verbose=True)
+
+predictions = model.predict(X_scaled_test)[:, 0]
+
+# finally, we use the trained model to predict the testing data 
+# and display metrics
+
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+
+print(f'MSE: {mean_squared_error(y_test, predictions):.3f}')
+print(f'MAE: {mean_absolute_error(y_test, predictions):.3f}')
+print(f'R^2: {r2_score(y_test, predictions):.3f}')
