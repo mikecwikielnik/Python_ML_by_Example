@@ -84,3 +84,15 @@ y_train = data_train['close'].values
 data_test = data.loc[start_test:end_test]
 X_test = data_test.drop('close', axis=1).values
 y_test = data_test['close'].values
+
+# normalize features into the same or a comparable scale. 
+# we do so by removing mean and rescaling to unit variance
+
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+
+# rescale both sets w/ the scaler taught by the training set
+
+X_scaled_train = scaler.fit_transform(X_train)
+X_scaled_test = scaler.transform(X_test)
+
