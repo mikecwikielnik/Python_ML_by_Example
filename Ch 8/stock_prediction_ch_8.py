@@ -113,3 +113,10 @@ model = Sequential([
 # the network we begin with has one hidden layer w/ 32 nodes
 # followed by ReLu function
 
+# we compile the model by using Adam as the optimizer 
+# w/ a learning rate of 0.1 & MSE as the learning goal:
+
+model.compile(loss='mean_squared_error',
+              optimizer=tf.keras.optimizers.Adam(0.1))
+
+    
