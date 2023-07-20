@@ -154,3 +154,10 @@ model.fit(X_train, y_train, epochs=300)
 
 # we fit the model w/ 300 iterations. 
 
+# finally, we use the trained model to predict the testing cases & 
+# print out the predictions and their MSE
+
+predictions = model.predict(X_test)[:, 0]
+print(predictions)
+print(np.mean((y_test - predictions) ** 2))
+
