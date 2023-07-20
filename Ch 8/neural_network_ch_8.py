@@ -129,3 +129,14 @@ print(np.mean((y_test - predictions) ** 2))
 import tensorflow as tf
 from tensorflow import keras
 
+tf.random.set_seed(42)
+
+# next we create a keras sequential model by passing 2 fully
+# connected hidden layers w/ 20 nodes, 8 nodes respectively. Again, ReLu activation is used
+
+model = keras.Sequential([
+    keras.layers.Dense(units=20, activation='relu'),
+    keras.layers.Dense(units=8, activation='relu'),
+    keras.layers.Dense(units=1)
+])
+
