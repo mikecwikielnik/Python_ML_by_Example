@@ -140,3 +140,9 @@ model = keras.Sequential([
     keras.layers.Dense(units=1)
 ])
 
+# and we compile the model by using Adam as the optimizer w/ 
+# a learning rate of 0.02 and MSE as the learning goal:
+
+model.compile(loss='mean_squared_error',
+              optimizer=tf.keras.optimizers.Adam(0.02))
+
