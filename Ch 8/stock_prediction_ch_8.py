@@ -140,3 +140,14 @@ print(f'R^2: {r2_score(y_test, predictions):.3f}')
 
 from tensorboard.plugins.hparams import api as hp
 
+# we want to tweak the number of hidden nodes in the hidden layer(again, we are using 1 hidden layer in this example)
+# we also want to tweak number of training iterations, and the learning rate
+# we pick the following hyperparameters to experiment on
+
+HP_HIDDEN = hp.HParam('hidden_size', hp.Discrete([64, 32, 16]))
+HP_EPOCHS = hp.HParam('epochs', hp.Discrete([300, 1000]))
+HP_LEARNING_RATE = hp.HParam('learning_rate', hp.RealInterval(0.01, 0.4))
+
+# 1) number of hidden nodes: 16, 32, 64
+# 2) two options for number of iterations: 300 and 1000
+# 3) range of 0.01 to 4 for the learning rate s
