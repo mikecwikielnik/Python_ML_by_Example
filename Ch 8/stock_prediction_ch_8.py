@@ -119,4 +119,6 @@ model = Sequential([
 model.compile(loss='mean_squared_error',
               optimizer=tf.keras.optimizers.Adam(0.1))
 
-    
+# after defining the model, we now train it against the training set
+
+model.fit(X_scaled_train, y_train, epochs=100, verbose=True)
