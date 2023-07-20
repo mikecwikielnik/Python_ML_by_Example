@@ -146,3 +146,11 @@ model = keras.Sequential([
 model.compile(loss='mean_squared_error',
               optimizer=tf.keras.optimizers.Adam(0.02))
 
+# the adam optimizer is a replacement for the stochastic gradient descent algo
+
+# after defining the model, we now train it against the training set:
+
+model.fit(X_train, y_train, epochs=300)
+
+# we fit the model w/ 300 iterations. 
+
