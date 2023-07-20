@@ -96,3 +96,20 @@ scaler = StandardScaler()
 X_scaled_train = scaler.fit_transform(X_train)
 X_scaled_test = scaler.transform(X_test)
 
+# now build a neural network model using the keras sequential api
+
+import tensorflow as tf
+
+from tensorflow.python.keras import Sequential
+from tensorflow.python.keras.layers import Dense 
+
+tf.random.set_seed(42)
+
+model = Sequential([
+    Dense(units=32, activation='relu'),
+    Dense(units=1)
+])
+
+# the network we begin with has one hidden layer w/ 32 nodes
+# followed by ReLu function
+

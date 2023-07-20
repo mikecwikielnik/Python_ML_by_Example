@@ -90,8 +90,9 @@ X_scaled_test = scaler.transform(X_test)
 
 
 import tensorflow as tf
-from tensorflow.keras import Sequential
-from tensorflow.keras.layers import Dense
+
+from tensorflow.python.keras import Sequential
+from tensorflow.python.keras.layers import Dense 
 
 tf.random.set_seed(42)
 
