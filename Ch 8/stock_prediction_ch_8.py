@@ -133,3 +133,10 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 print(f'MSE: {mean_squared_error(y_test, predictions):.3f}')
 print(f'MAE: {mean_absolute_error(y_test, predictions):.3f}')
 print(f'R^2: {r2_score(y_test, predictions):.3f}')
+
+#--------- fine-tuning the neural network
+
+# we perform fine tuning in tf with these steps
+
+from tensorboard.plugins.hparams import api as hp
+
