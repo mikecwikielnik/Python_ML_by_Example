@@ -19,3 +19,11 @@ print(names.words()[:10])
 
 print(len(names.words()))
 
+# a small tokenization function
+
+from nltk.tokenize import word_tokenize
+
+sent = """ I am reading a book.
+            It is Python Machine Learning by Example,
+            3rd edition."""
+print(word_tokenize(sent))
