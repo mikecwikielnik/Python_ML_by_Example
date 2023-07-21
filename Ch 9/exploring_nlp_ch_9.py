@@ -14,3 +14,8 @@ from nltk.corpus import names
 # we check out the first 10 names in the list:
 
 print(names.words()[:10])
+
+# find out how many names there are
+
+print(len(names.words()))
+
