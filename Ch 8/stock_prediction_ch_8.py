@@ -207,3 +207,16 @@ for hidden in HP_HIDDEN.domain.values:
             run(hparams, 'logs/hparam_tuning/' + run_name)
             session_num += 1
 
+# we achieve r^2 of 0.97122. please reference the book
+
+model = Sequential([
+    Dense(units=16, activation='relu'),
+    Dense(units=1)
+])
+
+model.compile(loss='mean_squared_error',
+              optimizer=tf.keras.optimizers.Adam(0.21))
+model.fit(X_scaled_train, y_train, epochs=1000, verbose=False)
+
+predictions = model.predict(X_scaled_test)[:, 8]
+
