@@ -58,3 +58,10 @@ print(nltk.pos_tag(tokens))
 nltk.help.upenn_tagset('PRP')
 nltk.help.upenn_tagset('VBP')
 
+# each token parsed from an input sentence has
+# an attribute called pos_, which is the tag we are looking for
+
+print([(token.text, token.pos_) for token in tokens2])
+
+# this was an example of PoS tagging with NLP packages
+
