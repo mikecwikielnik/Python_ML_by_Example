@@ -150,4 +150,28 @@ HP_LEARNING_RATE = hp.HParam('learning_rate', hp.RealInterval(0.01, 0.4))
 
 # 1) number of hidden nodes: 16, 32, 64
 # 2) two options for number of iterations: 300 and 1000
-# 3) range of 0.01 to 4 for the learning rate s
+# 3) range of 0.01 to 4 for the learning rate 
+
+def train_test_model(hparams, logdir):
+    model = Sequential([
+        Dense(units=hparams[HP_HIDDEN], activation='relu'),
+        Dense(units=1)
+    ])
+    model.compile(loss='mean_squared_error',
+                  optimizer=tf.keras.optimizers.Adam(hparams[HP_LEARNING_RATE]),
+                  metrics=['mean_squared_error'])
+    model.fit(X_scaled_train, y_train, validation_data=(X_scaled_test, y_test), epochs=hparams[HP_EPOCHS], verbose=False,
+              callbacks=[
+                  tf.keras.callbacks.TensorBoard(logdir),   # log metircs
+                  hp.KerasCallback(logdir, hparams),    # log hparams
+                  tf.keras.callbacks.EarlyStopping(
+                    monitor='val_loss', min_delta=0, patience=200, verbose=0, mode='auto',
+                  )
+              ],
+              )
+    _, mse = model.evaluate(X_scaled_test, y_test)
+    pred = model.predict(X_scaled_test)
+    r2 = r2_score(y_test, pred)
+    return mse, r2
+
+
