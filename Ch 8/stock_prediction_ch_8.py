@@ -175,3 +175,17 @@ def train_test_model(hparams, logdir):
     return mse, r2
 
 
+# next, we develop a fn to initiate a training process w/ a combination of hyperparameters to be assessed
+# and to write a summary w/ the metrics for MSE and R^2 returned by train_test_model fn
+
+def run(hparams, logdir):
+    with tf.summary.create_file_writer(logdir).as_default():
+        hp.hparams_config(
+            hparams = [HP_HIDDEN, HP_EPOCHS, HP_LEARNING_RATE],
+            metrics = [hp.Metric('mean_squared_error', display_name='mse'),
+                       hp.metric('r2', display='r2')],
+        )
+        mse, r2 = train_test_model(hparams, logdir)
+        tf.summary.scalar('mean_squared_error', mse, step=1)
+        tf.summary.scalar('r2', r2, step=1)
+
