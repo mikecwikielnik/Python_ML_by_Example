@@ -220,3 +220,15 @@ model.fit(X_scaled_train, y_train, epochs=1000, verbose=False)
 
 predictions = model.predict(X_scaled_test)[:, 8]
 
+# plot the prediction along w/ the ground truth as follows
+
+import matplotlib.pyplot as plt
+plt.plot(data_test.index, y_test, c='k')
+plt.plot(data_test.index, predictions, c='b')
+plt.plot(data_test.index, predictions, c='r')
+plt.plot(data_test.index, predictions, c='g')
+plt.xticks(range(0, 252, 10), rotation=60)
+plt.xlabel('Date')
+plt.ylabel('Close price')
+plt.legend(['Truth', 'Neural network prediction'])
+plt.show()
