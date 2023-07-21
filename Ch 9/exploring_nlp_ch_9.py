@@ -6,3 +6,7 @@ Liu, Yuxi (Hayden). Python Machine Learning By Example: Build intelligent system
 
 import nltk
 nltk.download()
+
+# first, import the names corpus (dataset)
+
+from nltk.corpus import names
