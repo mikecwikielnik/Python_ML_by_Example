@@ -27,3 +27,9 @@ sent = """ I am reading a book.
             It is Python Machine Learning by Example,
             3rd edition."""
 print(word_tokenize(sent))
+
+# this example shows that tokenization is more complex than some think
+
+sent2 = 'I have been to U.K. and U.S.A.'
+print(word_tokenize(sent2))
+
