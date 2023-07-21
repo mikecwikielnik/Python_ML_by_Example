@@ -10,3 +10,7 @@ nltk.download()
 # first, import the names corpus (dataset)
 
 from nltk.corpus import names
+
+# we check out the first 10 names in the list:
+
+print(names.words()[:10])
