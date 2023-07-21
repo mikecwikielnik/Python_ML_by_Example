@@ -49,3 +49,12 @@ print(sent_tokenize(sent))
 
 # two sentences are returned, as there are two sentences as the input text
 
+# PoS tagging example
+
+import nltk
+
+tokens = word_tokenize(sent)
+print(nltk.pos_tag(tokens))
+nltk.help.upenn_tagset('PRP')
+nltk.help.upenn_tagset('VBP')
+
