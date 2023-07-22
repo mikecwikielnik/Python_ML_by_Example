@@ -83,5 +83,8 @@ print([(token_ent.text, token_ent.label_) for token_ent in tokens3.ents])
 from nltk.stem.porter import PorterStemmer
 porter_stemmer = PorterStemmer()
 
+# stem machines and learning, as shown below
 
+porter_stemmer.stem('machines')
+porter_stemmer.stem('learning')
 
