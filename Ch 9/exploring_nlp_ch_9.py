@@ -92,3 +92,9 @@ porter_stemmer.stem('learning')
 
 from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
+
+# similar to stemming, we lemmatize machines, and learning
+
+from nltk.stem import WordNetLemmatizer
+lemmatizer.lemmatize('machines')
+lemmatizer.lemmatize('learning')
