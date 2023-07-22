@@ -75,3 +75,13 @@ tokens3 = nlp('The book written by Hayden Liu in 2020 was sold at $30 in Americ.
 # we can extract the tagging for each entity
 
 print([(token_ent.text, token_ent.label_) for token_ent in tokens3.ents])
+
+# ------ Stemming and lemmatization --------------
+
+# import PorterStemmer, its a built-in stemming algo
+
+from nltk.stem.porter import PorterStemmer
+porter_stemmer = PorterStemmer()
+
+
+
