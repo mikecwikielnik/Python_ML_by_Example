@@ -88,3 +88,7 @@ porter_stemmer = PorterStemmer()
 porter_stemmer.stem('machines')
 porter_stemmer.stem('learning')
 
+# import a lemmatization algo based on the built-in WordNet corpus (dataset) and initialize a lemmatizer
+
+from nltk.stem import WordNetLemmatizer
+lemmatizer = WordNetLemmatizer()
