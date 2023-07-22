@@ -70,3 +70,8 @@ print([(token.text, token.pos_) for token in tokens2])
 # first, tokenize the input sentence
 
 tokens3 = nlp('The book written by Hayden Liu in 2020 was sold at $30 in Americ.')
+
+# the resulting token object contains an attribute called ents aka entities.
+# we can extract the tagging for each entity
+
+print([(token_ent.text, token_ent.label_) for token_ent in tokens3.ents])
