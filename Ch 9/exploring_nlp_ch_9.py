@@ -65,3 +65,8 @@ print([(token.text, token.pos_) for token in tokens2])
 
 # this was an example of PoS tagging with NLP packages
 
+# NER example
+
+# first, tokenize the input sentence
+
+tokens3 = nlp('The book written by Hayden Liu in 2020 was sold at $30 in Americ.')
