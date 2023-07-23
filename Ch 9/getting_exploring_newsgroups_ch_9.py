@@ -24,3 +24,7 @@ groups.target
 
 import numpy as np
 np.unique(groups.target)
+
+# 0-19 means the 1st, 2nd, etc newsgroup topics in 
+# groups['target_names']
+
