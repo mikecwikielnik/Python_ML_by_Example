@@ -6,3 +6,6 @@ Liu, Yuxi (Hayden). Python Machine Learning By Example: Build intelligent system
 
 from sklearn.datasets import fetch_20newsgroups
 
+# downlod the dataset w/ all the default parameters
+
+groups = fetch_20newsgroups()
