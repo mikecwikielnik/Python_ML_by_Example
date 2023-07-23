@@ -9,3 +9,8 @@ from sklearn.datasets import fetch_20newsgroups
 # downlod the dataset w/ all the default parameters
 
 groups = fetch_20newsgroups()
+groups.keys()
+
+# target_names key gives the newsgroups names
+
+groups['target_names']
