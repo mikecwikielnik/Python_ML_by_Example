@@ -36,3 +36,8 @@ import matplotlib.pylab as plt
 sns.distplot(groups.target)
 plt.show()
 
+# ex: look at the first document, its topic nummber and name
+
+groups.data[0]
+groups.target[0]
+groups.target_names[groups.target[0]]
