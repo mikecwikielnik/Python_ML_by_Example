@@ -28,3 +28,11 @@ np.unique(groups.target)
 # 0-19 means the 1st, 2nd, etc newsgroup topics in 
 # groups['target_names']
 
+# plot the distribution of the newsgroup topics
+
+import seaborn as sns
+import matplotlib.pylab as plt
+
+sns.distplot(groups.target)
+plt.show()
+
