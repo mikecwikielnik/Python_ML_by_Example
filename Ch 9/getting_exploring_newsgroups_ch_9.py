@@ -14,3 +14,7 @@ groups.keys()
 # target_names key gives the newsgroups names
 
 groups['target_names']
+
+# target key corresponds to a newsgroup but encoded as an integer
+
+groups.target
