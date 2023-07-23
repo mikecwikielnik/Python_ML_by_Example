@@ -10,3 +10,7 @@ Liu, Yuxi (Hayden). Python Machine Learning By Example: Build intelligent system
 
 from sklearn.feature_extraction.text import CountVectorizer
 
+# first, initialize the count vectorizer w/ 500 top features (500 most frequent tokens):
+
+count_vector = CountVectorizer(stop_words="english", max_features=500)
+
