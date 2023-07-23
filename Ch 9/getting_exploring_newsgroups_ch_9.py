@@ -18,3 +18,9 @@ groups['target_names']
 # target key corresponds to a newsgroup but encoded as an integer
 
 groups.target
+
+# what are the distinct values for these integers?
+# we use the unique fn from numpy to figure it out
+
+import numpy as np
+np.unique(groups.target)
