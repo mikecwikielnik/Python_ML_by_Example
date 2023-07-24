@@ -32,4 +32,8 @@ for doc in groups.data:
     doc_cleaned = ' '.join(word for word in doc.split() if word.isalpha())
     data_cleaned.append(doc_cleaned)
 
-    
+# ex: dropping stop words  
+
+from sklearn.feature_extraction import _stop_words
+print(_stop_words.ENGLISH_STOP_WORDS)
+
