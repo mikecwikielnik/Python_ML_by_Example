@@ -60,3 +60,4 @@ data_cleaned_count = count_vector_sw.fit_transform(data_cleaned)
 
 # now the features are much more meaningful
 
+print(count_vector_sw.get_feature_names_out())
