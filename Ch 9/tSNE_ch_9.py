@@ -43,4 +43,11 @@ data_tsne = tsne_model.fit_transform(data_cleaned_count_3.toarray())
 import matplotlib.pyplot as plt
 plt.scatter(data_tsne[:, 0], data_tsne[:, 1], c=groups_3.target)
 
-plt.show()
+plt.show()  
+
+# another example
+
+categories_5 = ['comp.graphics', 'comp.os.ms-windows.misc', 'comp.sys.ibm.pc.hardware', 'comp.sys.mac.hardware',
+                'comp.windows.x']
+groups_5 = fetch_20newsgroups(categories = categories_5)
+
