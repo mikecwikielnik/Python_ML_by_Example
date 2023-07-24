@@ -37,3 +37,26 @@ for doc in groups.data:
 from sklearn.feature_extraction import _stop_words
 print(_stop_words.ENGLISH_STOP_WORDS)
 
+count_vector_sw = CountVectorizer(stop_words="english", max_features=500)
+
+# ex: putting preprocessing, dropping new words, lemmatizing, and count vectorizing together
+
+from nltk.corpus import names
+all_names = set(names.words())
+
+count_vector_sw = CountVectorizer(stop_words="english", max_features=500)
+
+from nltk.stem import WordNetLemmatizer
+lemmatizer = WordNetLemmatizer()
+
+data_cleaned = []
+
+for doc in groups.data:
+    doc = doc.lower()
+    doc_cleaned = ' '.join(lemmatizer.lemmatize(word) for word in doc.split() if word.isalpha() and word not in all_names)
+    data_cleaned.append(doc_cleaned)
+
+data_cleaned_count = count_vector_sw.fit_transform(data_cleaned)    
+
+# now the features are much more meaningful
+
