@@ -40,3 +40,7 @@ tsne_model = TSNE(n_components = 2, perplexity = 40, random_state = 42, learning
 
 data_tsne = tsne_model.fit_transform(data_cleaned_count_3.toarray())
 
+import matplotlib.pyplot as plt
+plt.scatter(data_tsne[:, 0], data_tsne[:, 1], c=groups_3.target)
+
+plt.show()
