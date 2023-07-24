@@ -18,3 +18,7 @@ count_vector = CountVectorizer(stop_words="english", max_features=500)
 
 data_count = count_vector.fit_transform(groups.data)
 
+data_count
+data_count[0]
+
+print(count_vector.get_feature_names_out())
