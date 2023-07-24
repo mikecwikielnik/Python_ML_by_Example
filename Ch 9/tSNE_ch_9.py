@@ -34,6 +34,9 @@ for doc in groups_3.data:
 
 data_cleaned_count_3 = count_vector_sw.fit_transform(data_cleaned)
 
-from sklearn.manifold import _t_sne
+from sklearn.manifold import TSNE
 
-\
+tsne_model = TSNE(n_components = 2, perplexity = 40, random_state = 42, learning_rate = 500)
+
+data_tsne = tsne_model.fit_transform(data_cleaned_count_3.toarray())
+
