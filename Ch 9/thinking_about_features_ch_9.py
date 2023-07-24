@@ -22,3 +22,14 @@ data_count
 data_count[0]
 
 print(count_vector.get_feature_names_out())
+
+# ------ text processing ----------
+
+# we retin letter-only words so numbers and letter/number combos are removed
+
+data_cleaned = []
+for doc in groups.data:
+    doc_cleaned = ' '.join(word for word in doc.split() if word.isalpha())
+    data_cleaned.append(doc_cleaned)
+
+    
