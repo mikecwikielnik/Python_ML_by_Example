@@ -37,3 +37,10 @@ from sklearn.feature_extraction.text import CountVectorizer
 count_vector = CountVectorizer(stop_words="english", max_features=None, max_df=0.5, min_df=2)
 
 data = count_vector.fit_transform(data_cleaned)
+
+from sklearn.cluster import KMeans
+
+k = 4 
+kmeans = KMeans(n_clusters=k, random_state=42)
+kmeans.fit(data)
+
