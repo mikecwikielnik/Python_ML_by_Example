@@ -39,3 +39,10 @@ visualize_centroids(X, centroids)
 def dist(a, b):
     return np.linalg.norm(a - b, axis=1)
 
+# then we develop a fn that assigns a sample to the cluster of the nearest centroid
+
+def assign_cluster(x, centroids):
+    distances = dist(x, centroids)  
+    cluster = np.argmin(distances)
+    return cluster
+
