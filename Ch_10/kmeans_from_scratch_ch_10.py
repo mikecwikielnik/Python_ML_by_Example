@@ -24,3 +24,11 @@ k = 3
 random_index = np.random.choice(range(len(X)), k)
 centroids = X[random_index]
 
+# visualize the data w.o labels any more, along w/ initial random centroids
+
+def visualize_centroids(X, centroids):
+    plt.scatter(X[:, 0], X[:, 1])
+    plt.scatter(centroids[:, 0], centroids[:, 1], marker='*', s=200, c='#050505')
+    plt.show()
+
+visualize_centroids(X, centroids)
