@@ -32,3 +32,10 @@ def visualize_centroids(X, centroids):
     plt.show()
 
 visualize_centroids(X, centroids)
+
+# now we perform step 3: assigning clusters based on the nearest centroids
+# first, we need to define a fn calculating distance by the euclidean distance
+
+def dist(a, b):
+    return np.linalg.norm(a - b, axis=1)
+
