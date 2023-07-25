@@ -70,5 +70,20 @@ max_iter = 100
 iter = 0
 centroids_diff = 100000
 
+# w/ all the componenets ready, we can train the model by iteration
 
+from copy import deepcopy
+while iter < max_iter and centroids_diff > tol:
+    for i in range(len(X)):
+        clusters[i] = assign_cluster(X[i], centroids)
+    centroids_prev = deepcopy(centroids)
+    update_centroids(X, centroids, clusters)
+    iter += 1
+    centroids_diff = np.linalg.norm(centroids - centroids_prev)
+    print('Iteration:', str(iter))
+    print('Centroids: \n', centroids)
+    print('Centroids move: {:5.4f}'.format(centroids_diff))
+    visualize_centroids(X, centroids)
+
+    
 
