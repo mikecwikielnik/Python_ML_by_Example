@@ -40,4 +40,9 @@ for k_ind, k in enumerate(k_list):
     print('k={}, SSE={}'.format(k, sse))
     sse_list[k_ind] = sse
 
+# finally, we plot the SSE versus the various k ranges
+
+plt.plot(k_list, sse_list)
+plt.show()
+
 
