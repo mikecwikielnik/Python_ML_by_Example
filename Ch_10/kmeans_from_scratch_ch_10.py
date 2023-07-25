@@ -16,3 +16,11 @@ import numpy as np
 from matplotlib import pyplot as plt
 plt.scatter(X[:, 0], X[:, 1], c=y)
 plt.show()
+
+# step 1: specifying k
+# step 2: initializing centroids, by randomly selecting 3 samples as initial centroids
+
+k = 3
+random_index = np.random.choice(range(len(X)), k)
+centroids = X[random_index]
+
