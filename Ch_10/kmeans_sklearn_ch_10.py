@@ -28,3 +28,10 @@ Kmeans_sk.fit(X)
 clusters_sk = Kmeans_sk.labels_
 centroids_sk = Kmeans_sk.cluster_centers_
 
+# similarly, we plot the clusters along with the centroids
+
+plt.scatter(X[:, 0], X[:, 1], c=clusters_sk)
+plt.scatter(centroids_sk[:, 0], centroids_sk[:, 1], marker='*', s=200, c='#050505')
+plt.show()
+
+
