@@ -31,4 +31,9 @@ for doc in groups.data:
     doc_cleaned = ' '.join(lemmatizer.lemmatize(word) for word in doc.split() if word.isalpha() and word not in all_names)
     data_cleaned.append(doc_cleaned)
 
-    
+# we then convert the cleaned text data into count vectors using CountVectorizer of sklearn
+
+from sklearn.feature_extraction.text import CountVectorizer
+count_vector = CountVectorizer(stop_words="english", max_features=None, max_df=0.5, min_df=2)
+
+data = count_vector.fit_transform(data_cleaned)
