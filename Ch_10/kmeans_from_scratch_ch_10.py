@@ -8,3 +8,11 @@ from sklearn import datasets
 iris = datasets.load_iris()
 X = iris.data[:, 2:4]
 y = iris.target
+
+
+# plot
+
+import numpy as np
+from matplotlib import pyplot as plt
+plt.scatter(X[:, 0], X[:, 1], c=y)
+plt.show()
