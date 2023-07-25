@@ -53,4 +53,17 @@ def update_centroids(X, centroids, clusters):
         cluster_i = np.where(clusters == i)
         centroids[i] = np.mean(X[cluster_i], axis=0)
 
-    
+# step 5: involves repeating step 3, 4 until the model converges and whichever of the 
+# following occurs:
+# 1) centroids move less than the pre-specifid threshold
+# 2) sufficient iterations have been taken
+
+# we set the tolerance of the first condition and the max iterations
+
+clusters = np.zeros(len(X))
+
+tol = 0.0001
+max_iter = 100
+
+
+
