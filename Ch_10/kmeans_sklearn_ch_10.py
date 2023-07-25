@@ -17,3 +17,8 @@ k = 3
 from sklearn.cluster import KMeans
 
 Kmeans_sk = KMeans(n_clusters=3, random_state=42)
+
+# we then fit the model on the data
+
+Kmeans_sk.fit(X)
+
