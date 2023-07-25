@@ -65,5 +65,10 @@ clusters = np.zeros(len(X))
 tol = 0.0001
 max_iter = 100
 
+# intialize the clusters starting value, along w/ all the starting clusters for all samples
+
+iter = 0
+centroids_diff = 100000
+
 
 
