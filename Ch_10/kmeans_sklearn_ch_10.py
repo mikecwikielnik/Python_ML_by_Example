@@ -19,6 +19,12 @@ from sklearn.cluster import KMeans
 Kmeans_sk = KMeans(n_clusters=3, random_state=42)
 
 # we then fit the model on the data
-
+  
 Kmeans_sk.fit(X)
+
+# after fitting the model, we can get the clustering results
+# including clusters for data samples and centroids of individual clusters
+
+clusters_sk = Kmeans_sk.labels_
+centroids_sk = Kmeans_sk.cluster_centers_
 
