@@ -46,3 +46,11 @@ def assign_cluster(x, centroids):
     cluster = np.argmin(distances)
     return cluster
 
+# step 4: update the centroids to the mean of all samples in the individual clusters
+
+def update_centroids(X, centroids, clusters):
+    for i in range(k):
+        cluster_i = np.where(clusters == i)
+        centroids[i] = np.mean(X[cluster_i], axis=0)
+
+    
