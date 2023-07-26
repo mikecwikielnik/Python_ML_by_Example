@@ -26,3 +26,15 @@ imp_mean.fit(data_origin)
 
 data_mean_imp = imp_mean.transform(data_origin)
 print(data_mean_imp)
+
+# similarly, initialize the imputation transformer w/ the median value
+
+imp_median = SimpleImputer(missing_values=np.nan, strategy='median')
+imp_median.fit(data_origin)
+data_median_imp = imp_median.transform(data_origin)
+print(data_median_imp)
+
+# when new samples come in, the missing values can be imputed 
+# using the trained transformer.
+# ex: the mean value
+
