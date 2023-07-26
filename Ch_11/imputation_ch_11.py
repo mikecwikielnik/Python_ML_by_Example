@@ -61,3 +61,9 @@ m, n = X_full.shape
 m_missing = int(m * 0.25)
 print(m, m_missing)
 
+# randomly select the m_missing samples
+
+np.random.seed(42)
+missing_samples = np.array([True] * m_missing + [False] * (m - m_missing))
+np.random.shuffle(missing_samples)
+
