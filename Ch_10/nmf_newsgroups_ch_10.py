@@ -36,4 +36,12 @@ for doc in groups.data:
 from sklearn.feature_extraction.text import CountVectorizer
 count_vector = CountVectorizer(stop_words="english", max_features=None, max_df=0.5, min_df=2)
 
+from sklearn.decomposition import NMF
+
+t = 20
+nmf = NMF(n_components=t, random_state=42)
+
+# we specify 20 topics(n_components)
+
 data = count_vector.fit_transform(data_cleaned)
+
