@@ -94,3 +94,10 @@ print(f'Score with the data set w/ missing samples removed: {score_rm_missing:.2
 
 imp_mean = SimpleImputer(missing_values=np.nan, strategy='mean')
 X_mean_imp = imp_mean.fit_transform(X_missing)
+
+# estimate R^2 on the data set w/ missing samples removed
+
+regressor = RandomForestClassifier(random_state=42, max_depth=10, n_estimators=100)
+score_mean_imp = cross_val_score(regressor, X_mean_imp, y).mean()
+print(f'Score with the data set with missing values replaced by mean: {score_mean_imp:.2f}')
+
