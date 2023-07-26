@@ -47,3 +47,9 @@ data = count_vector.fit_transform(data_cleaned)
 
 # now, fit the model nmf on the term matrix data
 
+nmf.fit(data)
+
+# we can obtain the resulting topic-feature rank W after the model is trained
+
+print(nmf.components_)
+
