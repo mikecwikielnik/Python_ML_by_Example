@@ -38,3 +38,9 @@ print(data_median_imp)
 # using the trained transformer.
 # ex: the mean value
 
+new = [[20, np.nan],
+       [30, np.nan],
+       [np.nan, 70],
+       [np.nan, np.nan]]
+new_mean_imp = imp_mean.transform(new)
+print(new_mean_imp)
