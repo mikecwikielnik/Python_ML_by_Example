@@ -21,3 +21,8 @@ data_origin = [[30, 100],
 
 imp_mean = SimpleImputer(missing_values=np.nan, strategy='mean')
 imp_mean.fit(data_origin)
+
+# compute the missing values as follows
+
+data_mean_imp = imp_mean.transform(data_origin)
+print(data_mean_imp)
