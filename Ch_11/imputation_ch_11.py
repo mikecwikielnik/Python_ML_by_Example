@@ -67,3 +67,7 @@ np.random.seed(42)
 missing_samples = np.array([True] * m_missing + [False] * (m - m_missing))
 np.random.shuffle(missing_samples)
 
+# for each missing sample, randomly select 1 out of n features
+
+missing_samples = np.random.randint(low=0, high=n, size=m_missing)
+
