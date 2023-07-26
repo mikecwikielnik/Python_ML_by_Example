@@ -81,3 +81,11 @@ X_missing[np.where(missing_samples)[0], missing_samples] = np.nan
 X_rm_missing = X_missing[~missing_samples, :]
 y_rm_missing = y[~missing_samples]
 
+# estimate the R^2 w/ a regression forest model in a cross-validation manner
+# estimate R^2 on the dataset w/ the missing samples removed
+
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import cross_val_score
+regressor = RandomForestClassifier(random_state=42, max_depth=10, n_estimators=100)
+score_rm_missing = cross_val_score(regressor, X_rm_missing, y_rm_missing).mean()
+print(f'Score with the data set w/ missing samples removed: {score_rm_missing:.2f}')
