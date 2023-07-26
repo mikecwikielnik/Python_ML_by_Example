@@ -71,3 +71,13 @@ np.random.shuffle(missing_samples)
 
 missing_samples = np.random.randint(low=0, high=n, size=m_missing)
 
+# represent missing values by nan
+
+X_missing = X_full.copy()
+X_missing[np.where(missing_samples)[0], missing_samples] = np.nan
+
+# discard samples containing missing values
+
+X_rm_missing = X_missing[~missing_samples, :]
+y_rm_missing = y[~missing_samples]
+
