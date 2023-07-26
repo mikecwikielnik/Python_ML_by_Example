@@ -89,3 +89,8 @@ from sklearn.model_selection import cross_val_score
 regressor = RandomForestClassifier(random_state=42, max_depth=10, n_estimators=100)
 score_rm_missing = cross_val_score(regressor, X_rm_missing, y_rm_missing).mean()
 print(f'Score with the data set w/ missing samples removed: {score_rm_missing:.2f}')
+
+# imputing the missing values w/ the mean
+
+imp_mean = SimpleImputer(missing_values=np.nan, strategy='mean')
+X_mean_imp = imp_mean.fit_transform(X_missing)
