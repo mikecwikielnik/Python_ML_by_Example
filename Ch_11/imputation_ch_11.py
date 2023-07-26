@@ -55,3 +55,9 @@ from sklearn import datasets
 dataset = datasets.load_diabetes()
 X_full, y = dataset.data, dataset.target    # important! 
 
+# simulate a corrupted dataset by adding 25% missing values
+
+m, n = X_full.shape
+m_missing = int(m * 0.25)
+print(m, m_missing)
+
