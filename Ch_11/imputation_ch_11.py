@@ -69,12 +69,12 @@ np.random.shuffle(missing_samples)
 
 # for each missing sample, randomly select 1 out of n features
 
-missing_samples = np.random.randint(low=0, high=n, size=m_missing)
+missing_features = np.random.randint(low=0, high=n, size=m_missing)
 
 # represent missing values by nan
 
 X_missing = X_full.copy()
-X_missing[np.where(missing_samples)[0], missing_samples] = np.nan
+X_missing[np.where(missing_samples)[0], missing_features] = np.nan
 
 # discard samples containing missing values
 
@@ -100,4 +100,10 @@ X_mean_imp = imp_mean.fit_transform(X_missing)
 regressor = RandomForestClassifier(random_state=42, max_depth=10, n_estimators=100)
 score_mean_imp = cross_val_score(regressor, X_mean_imp, y).mean()
 print(f'Score with the data set with missing values replaced by mean: {score_mean_imp:.2f}')
+
+# estimate R^2 on the full data set
+
+regressor = RandomForestClassifier(random_state=42, max_depth=10, n_estimators=500)
+score_full = cross_val_score(regressor, X_full, y).mean()
+print(f'Score w/ the full data set: {score_full:.2f}')
 
