@@ -41,3 +41,13 @@ count_vector = CountVectorizer(stop_words="english", max_features=None, max_df=0
 
 data = count_vector.fit_transform(data_cleaned)
 
+from sklearn.decomposition import LatentDirichletAllocation
+
+t = 20
+
+lda = LatentDirichletAllocation(n_components=t, learning_method='batch', random_state=42)
+
+# now fit the LDA model on the term matrix, data:
+
+lda.fit(data)
+
