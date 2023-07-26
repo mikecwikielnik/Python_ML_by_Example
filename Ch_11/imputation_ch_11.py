@@ -15,3 +15,9 @@ data_origin = [[30, 100],
                [25, 80],
                [30, 70],
                [40, 60]]
+
+# initialize the imputation transformer w/ the mean value & 
+# get the mean value from the original data:
+
+imp_mean = SimpleImputer(missing_values=np.nan, strategy='mean')
+imp_mean.fit(data_origin)
