@@ -44,3 +44,10 @@ k = 4
 kmeans = KMeans(n_clusters=k, random_state=42)
 kmeans.fit(data)
 
+clusters = kmeans.labels_
+
+from collections import Counter
+print(Counter(clusters))
+
+# using tf-idf representation, we replace CountVectorizer with TfidfVectorizer
+
