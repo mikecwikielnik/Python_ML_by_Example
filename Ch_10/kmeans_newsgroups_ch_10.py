@@ -51,6 +51,17 @@ print(Counter(clusters))
 
 # using tf-idf representation, we replace CountVectorizer with TfidfVectorizer
 
-from sklearn.feature_extraction.text import CountVectorizer
-count_vector = CountVectorizer(stop_words="english", max_features=None, max_df=0.5, min_df=2)
+from sklearn.feature_extraction.text import TfidfVectorizer
+tfidf_vector = TfidfVectorizer(stop_words="english", max_features=None, max_df=0.5, min_df=2)
 
+# redo feature extraction using tfidf vectorizer & kmeans cluster algo
+# on the resulting feature space
+
+data = tfidf_vector.fit_transform(data_cleaned)
+
+kmeans.fit(data)
+
+clusters = kmeans.labels_
+
+from collections import Counter
+print(Counter(clusters))
