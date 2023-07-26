@@ -44,3 +44,14 @@ new = [[20, np.nan],
        [np.nan, np.nan]]
 new_mean_imp = imp_mean.transform(new)
 print(new_mean_imp)
+
+# ex: the strategy of imputing missing values and discarding missing data
+# affects the prediction results
+
+# first, load diabetes dataset
+
+from sklearn import datasets
+
+dataset = datasets.load_diabetes()
+X_full, y = dataset.data, dataset.target    # important! 
+
