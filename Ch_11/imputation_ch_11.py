@@ -7,3 +7,11 @@ Liu, Yuxi (Hayden). Python Machine Learning By Example: Build intelligent system
 import numpy as np
 from sklearn.impute import SimpleImputer
 
+# represent the unknown value by np.nan in numpy, as follows
+
+data_origin = [[30, 100],
+               [20, 50],
+               [35, np.nan],
+               [25, 80],
+               [30, 70],
+               [40, 60]]
