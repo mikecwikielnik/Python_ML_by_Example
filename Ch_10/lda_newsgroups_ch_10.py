@@ -51,3 +51,7 @@ lda = LatentDirichletAllocation(n_components=t, learning_method='batch', random_
 
 lda.fit(data)
 
+# we obtain the resulting topic-term rank after the model is trained
+
+print(lda.components_)
+
