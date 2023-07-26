@@ -45,3 +45,5 @@ nmf = NMF(n_components=t, random_state=42)
 
 data = count_vector.fit_transform(data_cleaned)
 
+# now, fit the model nmf on the term matrix data
+
