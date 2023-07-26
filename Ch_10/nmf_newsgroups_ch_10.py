@@ -53,3 +53,12 @@ nmf.fit(data)
 
 print(nmf.components_)
 
+# for each topic, we display the top 10 terms based on their ranks
+
+terms = count_vector.get_feature_names_out()
+
+for topic_idx, topic in enumerate(nmf.components_):
+    print("Topic {}:".format(topic_idx))
+    print(" ".join([terms[i] for i in topic.argsort()[-10:]]))
+
+    
