@@ -41,3 +41,10 @@ regressor.fit(X_scaled_train, y_train)
 
 pickle.dump(regressor, open("regressor.p", "wb"))
 
+# deployment
+# we first load the saved standardizer &
+# the regressor object from the preceding 2 files
+
+my_scaler = pickle.load(open("scaler.p", "rb"))
+my_regressor = pickle.load(open("regressor.p", "rb"))
+
