@@ -7,3 +7,9 @@ Liu, Yuxi (Hayden). Python Machine Learning By Example: Build intelligent system
 import gensim.downloader as api
 
 model = api.load("glove-twitter-25")
+
+# we get the embedding vector for a word, for example: computer
+
+vector = model.wv['computer']
+print('Word computer is embedded into:\n', vector)
+
