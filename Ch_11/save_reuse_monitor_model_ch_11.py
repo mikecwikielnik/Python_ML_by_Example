@@ -37,3 +37,7 @@ from sklearn.svm import SVR
 regressor = SVR(C=20)
 regressor.fit(X_scaled_train, y_train)
 
+# save the regressor 
+
+pickle.dump(regressor, open("regressor.p", "wb"))
+
