@@ -15,6 +15,7 @@ print(X.shape)
 
 # next, estimate the accuracy of the original dataset,
 # which is 64-dimensional
+# estimate accuracy on the original data set
 
 from sklearn.svm import SVC
 from sklearn.model_selection import cross_val_score
@@ -22,3 +23,14 @@ classifier = SVC(gamma = 0.005, random_state=42)
 score = cross_val_score(classifier, X, y).mean()
 print(f'Score with the original data set: {score:.2f}')
 
+# then conduct feature selection based on random forest and
+# sort the features based on their importance
+# feature selectioin w/ random forest
+
+from sklearn.ensemble import RandomForestClassifier
+random_forest = RandomForestClassifier(n_estimators=100, criterion='gini', n_jobs=-1, random_state=42)
+random_forest.fit(X, y)
+
+# sort features based on their importnacies
+
+feature_sorted = np.argsort(random_forest.feature_importances_)
