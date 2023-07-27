@@ -19,3 +19,18 @@ cancer_data = datasets.load_breast_cancer()
 X = cancer_data.data    
 Y = cancer_data.target
 
+# 2) build a simple logistic regression model w/ keras sequential api & several parameters
+
+learning_rate = 0.005
+n_iter = 10
+
+tf.random.set_seed(42)
+
+model = keras.Sequential([
+    keras.layers.Dense(units=1, activation='sigmoid')
+])
+
+model.compile(loss='binary_crossentropy',
+              optimizer=tf.keras.optimizers.Adam(learning_rate))
+
+              
