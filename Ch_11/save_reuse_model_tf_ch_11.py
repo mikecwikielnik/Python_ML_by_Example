@@ -41,3 +41,15 @@ model.fit(X, Y, epochs=n_iter)
 
 model.summary()
 
+# now we save the model to a path
+
+path = './model_tf'
+model.save(path)
+
+# finally, we load the model from the previous path and
+# display the loaded model's path
+
+new_model = tf.keras.models.load_model(path)
+
+new_model.summary()
+
