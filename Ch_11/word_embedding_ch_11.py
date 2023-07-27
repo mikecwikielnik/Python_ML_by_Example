@@ -19,3 +19,11 @@ print('Word computer is embedded into:\n', vector)
 similar_words = model.most_similar("computer")
 print('top ten words most relevant to computer:\n', similar_words)
 
+# demonstrate how to generate representing vectors for a document
+
+doc_sample = ['i', 'love', 'python']
+
+import numpy as np
+doc_vector = np.mean([model.wv[word] for word in doc_sample], axis=0)
+print('the document sample is embedded into:\n', doc_vector)
+
