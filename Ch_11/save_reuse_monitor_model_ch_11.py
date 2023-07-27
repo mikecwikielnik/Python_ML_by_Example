@@ -26,4 +26,14 @@ import pickle
 # save the scaler
 pickle.dump(scaler, open("scaler.p", "wb"))
 
+# move on to training an SVR model on the scaled data
+
+X_scaled_train = scaler.transform(X_train)
+
+# regression model training
+
+from sklearn.svm import SVR 
+
+regressor = SVR(C=20)
+regressor.fit(X_scaled_train, y_train)
 
