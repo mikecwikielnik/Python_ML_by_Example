@@ -33,4 +33,7 @@ model = keras.Sequential([
 model.compile(loss='binary_crossentropy',
               optimizer=tf.keras.optimizers.Adam(learning_rate))
 
-              
+# train the tf model against the data
+
+model.fit(X, Y, epochs=n_iter)       
+
