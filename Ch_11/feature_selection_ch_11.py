@@ -13,3 +13,12 @@ dataset = load_digits()
 X, y = dataset.data, dataset.target     # important
 print(X.shape)
 
+# next, estimate the accuracy of the original dataset,
+# which is 64-dimensional
+
+from sklearn.svm import SVC
+from sklearn.model_selection import cross_val_score
+classifier = SVC(gamma = 0.005, random_state=42)
+score = cross_val_score(classifier, X, y).mean()
+print(f'Score with the original data set: {score:.2f}')
+
