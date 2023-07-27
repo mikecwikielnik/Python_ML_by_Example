@@ -53,3 +53,9 @@ my_regressor = pickle.load(open("regressor.p", "rb"))
 
 X_scaled_new = my_scaler.transform(X_new)
 predictions = my_regressor.predict(X_scaled_new)
+
+# performance check/monitoring
+
+from sklearn.metrics import r2_score
+print(f'Heath check on the model, R^2: {r2_score(y_new, predictions):.3f}')
+
