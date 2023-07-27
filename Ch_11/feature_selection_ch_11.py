@@ -34,3 +34,17 @@ random_forest.fit(X, y)
 # sort features based on their importnacies
 
 feature_sorted = np.argsort(random_forest.feature_importances_)
+
+# select different number of top features and 
+# estimate the accuracy on each dataset
+
+K = [10, 15, 25, 35, 45]
+for k in K:
+    top_k_features = feature_sorted[-k:]
+    X_k_selected = X[:, top_k_features]
+    # Estimate accuracy on the data set w/ k selected features
+    classifier = SVC(gamma=0.005)
+    score_k_features = cross_val_score(classifier, X_k_selected, y).mean()
+    print(f'Score with the dataset of top {k} features: {score_k_features:.2f}')
+
+    
