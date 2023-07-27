@@ -20,4 +20,10 @@ from sklearn.preprocessing import StandardScaler
 scaler = StandardScaler()
 scaler.fit(X_train)
 
+# now save the established standardizer
+
+import pickle
+# save the scaler
+pickle.dump(scaler, open("scaler.p", "wb"))
+
 
