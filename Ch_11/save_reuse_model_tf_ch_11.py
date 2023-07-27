@@ -37,3 +37,7 @@ model.compile(loss='binary_crossentropy',
 
 model.fit(X, Y, epochs=n_iter)       
 
+# display the models structure
+
+model.summary()
+
