@@ -13,3 +13,9 @@ model = api.load("glove-twitter-25")
 vector = model.wv['computer']
 print('Word computer is embedded into:\n', vector)
 
+# get top 10 words that are the most relevant to computer 
+# using most_similar method
+
+similar_words = model.most_similar("computer")
+print('top ten words most relevant to computer:\n', similar_words)
+
