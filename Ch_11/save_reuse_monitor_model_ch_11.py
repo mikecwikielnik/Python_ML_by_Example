@@ -14,3 +14,10 @@ y_train = y[:-num_new]
 X_new = X[-num_new:, :]
 y_new = y[-num_new:]
 
+# data preprocessing with scaling
+
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+scaler.fit(X_train)
+
+
