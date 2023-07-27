@@ -48,3 +48,8 @@ pickle.dump(regressor, open("regressor.p", "wb"))
 my_scaler = pickle.load(open("scaler.p", "rb"))
 my_regressor = pickle.load(open("regressor.p", "rb"))
 
+# we preprocess the new data using the stardardizer & 
+# make a prediction w/ the regressor object just loaded
+
+X_scaled_new = my_scaler.transform(X_new)
+predictions = my_regressor.predict(X_scaled_new)
