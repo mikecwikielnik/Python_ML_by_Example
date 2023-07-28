@@ -39,6 +39,9 @@ plt.grid(False)
 plt.title(class_names[train_labels[42]])
 plt.show()
 
+import os
+os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
+
 # in the ankle book sample, the pixel values are 0 to 255. 
 # so we rescale the data to a range of 0 to 1 
 # before feeding it to the neural network
@@ -47,4 +50,16 @@ plt.show()
 train_images = train_images / 255.0
 test_images = test_images / 255.0
 
+# display the first 16 training samples after the preprocessing
 
+plt.figure(figsize=(10, 10))
+
+for i in range(16):
+    plt.subplot(4, 4, i + 1)
+    plt.subplots_adjust(hspace=.3)
+    plt.xticks([])
+    plt.yticks([])
+    plt.grid(False)
+    plt.imshow(train_images[i], cmap=plt.cm.binary)
+    plt.title(class_names[train_labels[i]])
+plt.show()
