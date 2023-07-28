@@ -22,5 +22,11 @@ class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
 
 # take a look at the format of the image data as follows
 
-print(train_images.shape)
+print(train_images.shape)   # 60k training samples
+
+# similarly for the 10k testing samples, we check the format
+
+print(test_images.shape)
+
+
 
