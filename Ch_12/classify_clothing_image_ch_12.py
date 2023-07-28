@@ -28,5 +28,14 @@ print(train_images.shape)   # 60k training samples
 
 print(test_images.shape)
 
+# inspect the random training sample
 
+import matplotlib.pyplot as plt
+
+plt.figure()
+plt.imshow(train_images[42])
+plt.colorbar()
+plt.grid(False)
+plt.title(class_names[train_labels[42]])
+plt.show()
 
