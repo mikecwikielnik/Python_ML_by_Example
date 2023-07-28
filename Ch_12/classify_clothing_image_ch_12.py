@@ -39,3 +39,12 @@ plt.grid(False)
 plt.title(class_names[train_labels[42]])
 plt.show()
 
+# in the ankle book sample, the pixel values are 0 to 255. 
+# so we rescale the data to a range of 0 to 1 
+# before feeding it to the neural network
+# we divide the values of both training samples, test samples by 255
+
+train_images = train_images / 255.0
+test_images = test_images / 255.0
+
+
