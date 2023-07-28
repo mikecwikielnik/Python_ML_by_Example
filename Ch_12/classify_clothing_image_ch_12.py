@@ -20,3 +20,7 @@ print(train_labels)
 class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
                'Sandal', 'Shift', 'Sneaker', 'Bag', 'Ankle boot']
 
+# take a look at the format of the image data as follows
+
+print(train_images.shape)
+
