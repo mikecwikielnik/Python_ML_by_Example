@@ -14,3 +14,9 @@ fashion_mnist = tf.keras.datasets.fashion_mnist
 
 print(train_labels)
 
+# label arrays don't include class names. 
+# so we define them here and use them for plotting later
+
+class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
+               'Sandal', 'Shift', 'Sneaker', 'Bag', 'Ankle boot']
+
