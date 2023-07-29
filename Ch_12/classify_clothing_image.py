@@ -58,7 +58,8 @@ print(X_train.shape)
 tf.random.set_seed(42)
 
 
-from tensorflow.keras import datasets, layers, models, losses
+from tensorflow import keras 
+from keras import datasets, layers, models, losses
 model = models.Sequential()
 model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28, 1)))
 model.add(layers.MaxPooling2D((2, 2)))

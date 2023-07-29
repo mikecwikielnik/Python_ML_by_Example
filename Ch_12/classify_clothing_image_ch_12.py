@@ -63,3 +63,10 @@ for i in range(16):
     plt.imshow(train_images[i], cmap=plt.cm.binary)
     plt.title(class_names[train_labels[i]])
 plt.show()
+
+# first reshape the data
+
+X_train = train_images.reshape((train_images.shape[0], 28, 28, 1))
+X_test = test_images.reshape((test_images.shape[0], 28, 28, 1))
+
+print(X_train.shape)
