@@ -75,3 +75,10 @@ print(X_train.shape)
 
 tf.random.set_seed(42)
 
+# we import the necessary modules from keras and
+# initialize a keras-based model
+
+from tensorflow import keras
+from keras import datasets, layers, models, losses
+model = models.Sequential()
+
