@@ -89,6 +89,10 @@ model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28, 1)))
 
 # note we use the relu as the activation function
 
+# a max pooling layer w/ a 2x2 filter is next
+
+model.add(layers.MaxPooling2D((2, 2)))
+
 
 
 

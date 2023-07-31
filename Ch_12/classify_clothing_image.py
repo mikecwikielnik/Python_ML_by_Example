@@ -1,4 +1,4 @@
-'''
+  '''
 Source codes for Python Machine Learning By Example 3rd Edition (Packt Publishing)
 Chapter 12 Categorizing Images of Clothing with Convolutional Neural Networks
 Author: Yuxi (Hayden) Liu (yuxi.liu.ece@gmail.com)
