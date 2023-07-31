@@ -98,6 +98,11 @@ model.add(layers.MaxPooling2D((2, 2)))
 
 model.add(layers.Conv2D(64, (3, 3), activation='relu'))
 
+# the second convolutional layer is followed by 
+# another max-pooling layer w/ a 2x2 filter
+
+model.add(layers.MaxPool2D((2, 2)))
+
 
 
 
