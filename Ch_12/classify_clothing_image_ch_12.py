@@ -82,3 +82,13 @@ from tensorflow import keras
 from keras import datasets, layers, models, losses
 model = models.Sequential()
 
+# we are going to build 3 convolutional layers
+# the first layer has 32 3x3 filters. 
+
+model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28, 1)))
+
+# note we use the relu as the activation function
+
+
+
+
