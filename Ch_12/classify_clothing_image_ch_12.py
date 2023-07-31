@@ -103,6 +103,9 @@ model.add(layers.Conv2D(64, (3, 3), activation='relu'))
 
 model.add(layers.MaxPool2D((2, 2)))
 
+# we continue adding the 3rd convolutional layer
+# it has 128 3x3 filters 
 
+model.add(layers.Conv2D(128, (3, 3), activation='relu'))
 
 
