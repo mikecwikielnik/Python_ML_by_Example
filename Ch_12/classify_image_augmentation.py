@@ -5,6 +5,7 @@ Author: Yuxi (Hayden) Liu (yuxi.liu.ece@gmail.com)
 '''
 
 import tensorflow as tf
+from tensorflow import keras
 import matplotlib.pyplot as plt
 
 
@@ -23,7 +24,7 @@ train_images = train_images / 255.0
 test_images = test_images / 255.0
 
 
-from tensorflow.keras.preprocessing.image import load_img
+from keras.preprocessing.image import load_img
 
 def generate_plot_pics(datagen, original_img, save_prefix):
     folder = 'aug_images'
@@ -53,7 +54,7 @@ def generate_plot_pics(datagen, original_img, save_prefix):
 
 
 
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from keras.preprocessing.image import ImageDataGenerator
 
 datagen = ImageDataGenerator(horizontal_flip=True)
 generate_plot_pics(datagen, train_images[0], 'horizontal_flip')
@@ -87,7 +88,7 @@ print(X_train.shape)
 tf.random.set_seed(42)
 
 
-from tensorflow.keras import datasets, layers, models, losses
+from keras import datasets, layers, models, losses
 model = models.Sequential()
 model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28, 1)))
 model.add(layers.MaxPooling2D((2, 2)))

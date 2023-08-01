@@ -205,3 +205,15 @@ filters, _ = model.layers[2].get_weights()
 f_min, f_max = filters.min(), filters.max()
 filters = (filters - f_min) / (f_max - f_min)
 
+# recall we have 64 filters in this convolutional layer. 
+# we visualize the first 16 filters in 4 rows & 4 columns
+
+n_filters = 16
+for i in range(n_filters):
+    filter = filters[:, :, :, i]
+    plt.subplot(4, 4, i+1)
+    plt.xticks([])
+    plt.yticks([])
+    plt.imshow(filter[:, :, 0], cmap='gray')
+plt.show()
+
