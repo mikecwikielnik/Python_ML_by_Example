@@ -132,4 +132,9 @@ print('Accuracy on test set:', test_acc)
 
 datagen = ImageDataGenerator(height_shift_range=3,
                              horizontal_flip=True)
-                             
+
+# herein we try to avoid creating augmented images that will look different than original ones
+
+# we clone the CNN model we used previously
+
+model_aug = tf.keras.models.clone_model(model)
