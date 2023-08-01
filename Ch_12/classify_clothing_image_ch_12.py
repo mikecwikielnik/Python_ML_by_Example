@@ -132,3 +132,20 @@ model.compile(optimizer='adam',
 # lets take a look at the model summary 
 
 model.summary()
+
+
+"""
+now it's time to train the model we just built.
+we train it for 10 iterations and evaluate it using the testing samples
+"""
+
+model.fit(X_train, train_labels, validation_data=(X_test, test_labels), epochs=10)
+
+# accuracy is the training set- 0.95233
+# val_accuracy is the testing set- 0.9119
+
+# to double check the performance on the test set, 
+# do this
+
+test_loss, test_acc = model.evaluate(X_test, test_labels, verbose=2)
+print('accuracy on test set:', test_acc)
