@@ -70,3 +70,7 @@ generate_plot_pics(datagen, train_images[0], 'hv_flip')
 datagen = ImageDataGenerator(rotation_range=30)
 generate_plot_pics(datagen, train_images[0], 'rotation')
 
+# shifting for data augmentation
+
+datagen = ImageDataGenerator(width_shift_range=8)
+generate_plot_pics(datagen, train_images[0], 'width_shift')
