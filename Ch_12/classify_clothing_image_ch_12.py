@@ -149,3 +149,11 @@ model.fit(X_train, train_labels, validation_data=(X_test, test_labels), epochs=1
 
 test_loss, test_acc = model.evaluate(X_test, test_labels, verbose=2)
 print('accuracy on test set:', test_acc)
+
+# the above the check yield 0.91189
+
+# now that we have a well-trained model,
+# we can make predictions on the test set using the following
+
+predictions = model.predict(X_test)
+
