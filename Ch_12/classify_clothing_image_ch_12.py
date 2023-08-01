@@ -129,3 +129,6 @@ model.compile(optimizer='adam',
               loss=losses.sparse_categorical_crossentropy,
               metrics=['accuracy'])
 
+# lets take a look at the model summary 
+
+model.summary()
