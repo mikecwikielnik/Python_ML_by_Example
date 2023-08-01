@@ -40,7 +40,7 @@ def generate_plot_pics(datagen, original_img, save_prefix):
     plt.imshow(original_img)
     plt.title("Original")
     i = 1
-    for file in os.listdif(folder):
+    for file in os.listdir(folder):
         if file.startswith(save_prefix):
             plt.subplot(2, 2, i + 1, xticks=[], yticks=[])
             aug_img = load_img(folder + "/" + file)
@@ -49,4 +49,11 @@ def generate_plot_pics(datagen, original_img, save_prefix):
             i += 1
     plt.show()
 
-    
+# lets try out our horizontal_fli generator
+# using the first training image
+
+from keras.preprocessing.image import ImageDataGenerator
+
+datagen = ImageDataGenerator(horizontal_flip=True)
+generate_plot_pics(datagen, train_images[0], 'horizontal_flip')
+
