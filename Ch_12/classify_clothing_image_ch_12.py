@@ -161,3 +161,8 @@ predictions = model.predict(X_test)
 
 print(predictions[0])
 
+# since we have the predicted probabilities for this sample
+# to obtain the predicted label, we do
+
+import numpy as np
+print('predicted label for the first test sample:', np.argmax(predictions[0]))
