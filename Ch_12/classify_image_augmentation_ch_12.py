@@ -127,3 +127,9 @@ model.fit(X_train, train_labels, validation_data=(X_test, test_labels), epochs=2
 test_loss, test_acc = model.evaluate(X_test, test_labels, verbose=2) # model.evaluate is important
 print('Accuracy on test set:', test_acc)
 
+# now we work on data aug & see if it can boost performance
+# we first define the aug data generator
+
+datagen = ImageDataGenerator(height_shift_range=3,
+                             horizontal_flip=True)
+                             
