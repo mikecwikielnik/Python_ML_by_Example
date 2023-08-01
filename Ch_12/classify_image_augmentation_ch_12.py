@@ -80,3 +80,21 @@ generate_plot_pics(datagen, train_images[0], 'width_shift')
 datagen = ImageDataGenerator(width_shift_range=8,
                              height_shift_range=8)
 generate_plot_pics(datagen, train_images[0], 'width_height_shift')
+
+# improving the clothing image classifier w/ data augmentation
+
+# since we can shift and flip images, we apply them to train our image classifier
+
+# we start by constructing a small training set
+
+X_train = train_images.reshape((train_images.shape[0], 28, 28, 1))
+X_test = test_images.reshape((test_images.shape[0], 28, 28, 1))
+
+n_small = 500
+X_train = X_train[:n_small]
+train_labels = train_labels[:n_small]
+
+print(X_train.shape)
+
+# we only use 500 samples for training
+
