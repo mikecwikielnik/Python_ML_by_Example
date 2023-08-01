@@ -57,3 +57,9 @@ from keras.preprocessing.image import ImageDataGenerator
 datagen = ImageDataGenerator(horizontal_flip=True)
 generate_plot_pics(datagen, train_images[0], 'horizontal_flip')
 
+# horizontal & vertical flips simultaneously
+
+datagen = ImageDataGenerator(horizontal_flip=True,
+                             vertical_flip=True)
+generate_plot_pics(datagen, train_images[0], 'hv_flip')
+
