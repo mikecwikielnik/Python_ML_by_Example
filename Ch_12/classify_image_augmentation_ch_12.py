@@ -74,3 +74,9 @@ generate_plot_pics(datagen, train_images[0], 'rotation')
 
 datagen = ImageDataGenerator(width_shift_range=8)
 generate_plot_pics(datagen, train_images[0], 'width_shift')
+
+# shifting both horizontally & vertically at the same time
+
+datagen = ImageDataGenerator(width_shift_range=8,
+                             height_shift_range=8)
+generate_plot_pics(datagen, train_images[0], 'width_height_shift')
