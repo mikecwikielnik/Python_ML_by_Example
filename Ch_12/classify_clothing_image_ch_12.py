@@ -188,3 +188,7 @@ def plot_image_prediction(i, images, predictions, labels, class_names):
     plot[prediction].set_color('red')
     plot[labels[i]].set_color('blue')
     plt.show()
+
+# first test sample
+
+plot_image_prediction(0, test_images, predictions, test_labels, class_names)
