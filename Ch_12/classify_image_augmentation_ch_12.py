@@ -152,3 +152,9 @@ model_aug.compile(optimizer='adam',
 
 train_generator = datagen.flow(X_train, train_labels, seed=42, batch_size=40)
 model_aug.fit(train_generator, epochs=50, validation_data=(X_test, test_labels))
+
+# lets see how it performs on the test set
+
+test_loss, test_acc = model_aug.evaluate(X_test, test_labels, verbose=2)
+print('Accuracy on test set:', test_acc)
+
