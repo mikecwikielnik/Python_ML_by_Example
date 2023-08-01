@@ -23,6 +23,8 @@ test_images = test_images / 255.0
 # first, we develop a utility fn to generate images
 # given an augmented image generator and display them
 
+# horizontal flipping
+
 from keras.preprocessing.image import load_img
 
 def generate_plot_pics(datagen, original_img, save_prefix):
@@ -62,4 +64,9 @@ generate_plot_pics(datagen, train_images[0], 'horizontal_flip')
 datagen = ImageDataGenerator(horizontal_flip=True,
                              vertical_flip=True)
 generate_plot_pics(datagen, train_images[0], 'hv_flip')
+
+# rotation for data augmentation
+
+datagen = ImageDataGenerator(rotation_range=30)
+generate_plot_pics(datagen, train_images[0], 'rotation')
 
