@@ -116,3 +116,8 @@ model.add(layers.Flatten())
 
 model.add(layers.Dense(64, activation='relu'))
 
+# the output layer: has 10 nodes representing 10 different classes
+# along with softmax activation
+
+model.add(layers.Dense(10, activation='softmax'))
+
