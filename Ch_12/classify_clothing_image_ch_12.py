@@ -192,3 +192,10 @@ def plot_image_prediction(i, images, predictions, labels, class_names):
 # first test sample
 
 plot_image_prediction(0, test_images, predictions, test_labels, class_names)
+
+# visualizing the convolutional filters
+# we know layers 0, 2, 4 are convolutional layers.
+# using the 2nd convolutional layer as an example, we obtain its filters
+
+filters, _ = model.layers[2].get_weights()
+
