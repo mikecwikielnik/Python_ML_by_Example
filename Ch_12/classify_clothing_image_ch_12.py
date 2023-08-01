@@ -157,3 +157,7 @@ print('accuracy on test set:', test_acc)
 
 predictions = model.predict(X_test)
 
+# take a look at the first sample, the prediction as follows
+
+print(predictions[0])
+
