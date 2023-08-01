@@ -108,4 +108,7 @@ model.add(layers.MaxPool2D((2, 2)))
 
 model.add(layers.Conv2D(128, (3, 3), activation='relu'))
 
+# resulting filter maps are flattened
+
+model.add(layers.Flatten())
 
