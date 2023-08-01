@@ -199,3 +199,9 @@ plot_image_prediction(0, test_images, predictions, test_labels, class_names)
 
 filters, _ = model.layers[2].get_weights()
 
+# next, we normalize the filter values to the range of 0 to 1
+# so we can visualize them more easily
+
+f_min, f_max = filters.min(), filters.max()
+filters = (filters - f_min) / (f_max - f_min)
+
