@@ -148,4 +148,7 @@ model_aug.compile(optimizer='adam',
                   loss=losses.sparse_categorical_crossentropy,
                   metrics=['accuracy'])
 
-                  
+# finally, we fit this CNN model on data w/ real-time aug
+
+train_generator = datagen.flow(X_train, train_labels, seed=42, batch_size=40)
+model_aug.fit(train_generator, epochs=50, validation_data=(X_test, test_labels))
