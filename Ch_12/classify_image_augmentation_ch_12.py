@@ -118,4 +118,7 @@ model.compile(optimizer='adam',
               loss = losses.sparse_categorical_crossentropy,
               metrics = ['accuracy'])
 
-              
+# first we train the model w/o data aug
+
+model.fit(X_train, train_labels, validation_data=(X_test, test_labels), epochs=20, batch_size=40)              
+
