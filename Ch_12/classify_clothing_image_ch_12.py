@@ -112,3 +112,7 @@ model.add(layers.Conv2D(128, (3, 3), activation='relu'))
 
 model.add(layers.Flatten())
 
+# for the classifier backend, we just use one hidden layer w/ 64 nodes
+
+model.add(layers.Dense(64, activation='relu'))
+
