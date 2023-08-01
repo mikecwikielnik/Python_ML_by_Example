@@ -166,3 +166,7 @@ print(predictions[0])
 
 import numpy as np
 print('predicted label for the first test sample:', np.argmax(predictions[0]))
+
+# do a fact check
+
+print('True label for the first test sample:', test_labels[0])
