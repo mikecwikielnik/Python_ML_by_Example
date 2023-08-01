@@ -138,3 +138,14 @@ datagen = ImageDataGenerator(height_shift_range=3,
 # we clone the CNN model we used previously
 
 model_aug = tf.keras.models.clone_model(model)
+
+# it only copies CNN architecture & creates new weights 
+# instead of sharing the weights of the existing model
+
+# we compile as just like before
+
+model_aug.compile(optimizer='adam',
+                  loss=losses.sparse_categorical_crossentropy,
+                  metrics=['accuracy'])
+
+                  
