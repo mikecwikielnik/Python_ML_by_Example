@@ -121,3 +121,11 @@ model.add(layers.Dense(64, activation='relu'))
 
 model.add(layers.Dense(10, activation='softmax'))
 
+# now we compile the model w/ Adam as the optimizer, 
+# cross-entropy as the loss function
+# classification accuracy as the metric
+
+model.compile(optimizer='adam',
+              loss=losses.sparse_categorical_crossentropy,
+              metrics=['accuracy'])
+
