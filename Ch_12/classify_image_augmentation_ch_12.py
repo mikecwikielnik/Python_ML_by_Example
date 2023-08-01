@@ -122,3 +122,8 @@ model.compile(optimizer='adam',
 
 model.fit(X_train, train_labels, validation_data=(X_test, test_labels), epochs=20, batch_size=40)              
 
+# lets see how it performs on the test set
+
+test_loss, test_acc = model.evaluate(X_test, test_labels, verbose=2) # model.evaluate is important
+print('Accuracy on test set:', test_acc)
+
