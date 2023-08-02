@@ -55,3 +55,9 @@ maxlen = 200
 
 X_train = pad_sequences(X_test, maxlen=maxlen)
 X_test = pad_sequences(X_test, maxlen=maxlen)
+
+# lets look at the shape of the input sequence after this
+
+print('X_train shape after padding:', X_train.shape)
+print('X_test shape after padding:', X_test.shape)
+
