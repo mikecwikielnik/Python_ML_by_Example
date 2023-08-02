@@ -93,3 +93,10 @@ model.add(layers.Dense(1, activation='sigmoid'))
 
 print(model.summary())
 
+# now we compile the model w/ the Adam optimzier and 
+# use the binary cross-entropy as the optimization target
+
+model.compile(loss='binary_crossentropy',
+              optimizer='adam',
+              metrics=['accuracy'])
+
