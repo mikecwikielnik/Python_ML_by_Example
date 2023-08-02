@@ -46,3 +46,12 @@ review_lengths = [len(x) for x in X_train]
 from matplotlib import pyplot as plt
 plt.hist(review_lengths, bins=10)
 plt.show()
+
+# the visualization shows that most of the reviews are 200 words long
+# next, we set 200 as the universal sequence length by padding shorter reviews, truncating longer reviews
+# we use the pad_sequences fn from keras to do this
+
+maxlen = 200
+
+X_train = pad_sequences(X_test, maxlen=maxlen)
+X_test = pad_sequences(X_test, maxlen=maxlen)
