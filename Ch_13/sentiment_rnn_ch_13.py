@@ -77,3 +77,7 @@ model = models.Sequential()
 embedding_size = 32
 
 model.add(layers.Embedding(vocab_size, embedding_size))
+
+# now here comes the recurrent layer, the LSTM layer specifically
+
+model.add(layers.LSTM(50))
