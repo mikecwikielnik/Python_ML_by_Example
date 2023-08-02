@@ -61,3 +61,13 @@ X_test = pad_sequences(X_test, maxlen=maxlen)
 print('X_train shape after padding:', X_train.shape)
 print('X_test shape after padding:', X_test.shape)
 
+# ---- building a simple LSTM network --------------------
+
+# now that the training, testing datasets are ready, we can build our first RNN model
+
+# first, we fix the random seed and initiate a keras sequential model
+
+tf.random.set_seed(42)
+
+model = models.Sequential()
+
