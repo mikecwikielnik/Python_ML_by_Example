@@ -100,3 +100,13 @@ model.compile(loss='binary_crossentropy',
               optimizer='adam',
               metrics=['accuracy'])
 
+# finally we train the model w/ batches of size 64 for 3 epochs
+
+batch_size = 64
+n_epoch = 3
+
+model.fit(X_train, y_train,
+          batch_size = batch_size,
+          epochs = n_epoch,
+          validation_data = (X_test, y_test))
+
