@@ -26,3 +26,8 @@ print('Number of test samples:', len(y_test))
 # print a training sample
 
 print(X_train[0])
+
+# we use the word dictionary to map the integer back to the word it represents
+
+word_index = imdb.get_word_index()
+index_word = {index: word for word, index in word_index.items()}
