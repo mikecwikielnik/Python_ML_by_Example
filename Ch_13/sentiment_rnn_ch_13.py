@@ -115,3 +115,19 @@ model.fit(X_train, y_train,
 acc = model.evaluate(X_test, y_test, verbose=0)[1]
 print('Test accuracy:', acc)
 
+# ------- stakcing multiple LSTM layers ---------
+
+# now lets try to stack two recurrent layers. 
+# lets see if we can beat the val_accuracy of 0.49/test accuracy of 0.49
+# we do this by building a multi-layer RNN model
+
+# first, we initiate a new model and add an embedding layer, two LSTM layers, and an output layer
+
+model = models.Sequential()
+model.add(layers.Embedding(vocab_size, embedding_size))
+model.add(layers.LSTM(50, return_sequences = True, dropout = 0.2))
+model.add(layers.LSTM(50, dropout = 0.2))
+model.add(layers.Dense(1, activation = 'sigmoid'))
+
+
+
