@@ -145,4 +145,7 @@ model.fit(X_train, y_train,
           epochs = n_epoch,
           validation_data = (X_test, y_test))
 
-          
+# verify test accuracy
+
+acc = model.evaluate(X_test, y_test, verbose=0)[1]
+print('Test accuracy with stacked LSTM:', acc)
