@@ -81,3 +81,11 @@ model.add(layers.Embedding(vocab_size, embedding_size))
 # now here comes the recurrent layer, the LSTM layer specifically
 
 model.add(layers.LSTM(50))
+
+# herein, we only use one recurrent layer w/ 50 nodes
+
+# after, we add the output layer, along with the sigmoid activation function, 
+# since we are working on a binary classification problem
+
+model.add(layers.Dense(1, activation='sigmoid'))
+
