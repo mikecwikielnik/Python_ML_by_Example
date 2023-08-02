@@ -89,3 +89,7 @@ model.add(layers.LSTM(50))
 
 model.add(layers.Dense(1, activation='sigmoid'))
 
+# display the model summary to double check the layers
+
+print(model.summary())
+
