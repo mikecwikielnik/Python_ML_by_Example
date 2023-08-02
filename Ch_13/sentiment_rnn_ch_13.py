@@ -41,3 +41,8 @@ print([index_word.get(i, ' ') for i in X_train[0]])
 
 review_lengths = [len(x) for x in X_train]
 
+# plot the distribution of these document lengths
+
+from matplotlib import pyplot as plt
+plt.hist(review_lengths, bins=10)
+plt.show()
