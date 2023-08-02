@@ -129,5 +129,5 @@ model.add(layers.LSTM(50, return_sequences = True, dropout = 0.2))
 model.add(layers.LSTM(50, dropout = 0.2))
 model.add(layers.Dense(1, activation = 'sigmoid'))
 
-
+print(model.summary())
 
