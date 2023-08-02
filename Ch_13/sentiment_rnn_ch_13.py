@@ -35,3 +35,9 @@ index_word = {index: word for word, index in word_index.items()}
 # take the first review as an example
 
 print([index_word.get(i, ' ') for i in X_train[0]])
+
+# we analyze the length of each sample. We do so because all the input sentences
+# to a RNN model must be the same length
+
+review_lengths = [len(x) for x in X_train]
+
