@@ -10,3 +10,9 @@ from keras.datasets import imdb
 from keras import layers, models, losses, optimizers
 from keras.preprocessing.sequence import pad_sequences
 
+# keras has a bulit in imdb dataset, so load the dataset
+
+vocab_size = 5000
+
+(X_train, y_train), (X_test, y_test) = imdb.load_data(num_words = vocab_size)
+
