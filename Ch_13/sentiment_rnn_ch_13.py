@@ -23,3 +23,6 @@ print('Number of positive samples', sum(y_train))
 
 print('Number of test samples:', len(y_test))
 
+# print a training sample
+
+print(X_train[0])
