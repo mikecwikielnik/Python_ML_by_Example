@@ -136,3 +136,13 @@ optimizer = optimizers.Adam(lr = 0.003)
 model.compile(loss = 'binary_crossentropy',
               optimizer = optimizer,
               metrics = ['accuracy'])
+
+# then we train the stacked model for 7 epochs
+
+n_epoch = 7
+model.fit(X_train, y_train,
+          batch_size = batch_size,
+          epochs = n_epoch,
+          validation_data = (X_test, y_test))
+
+          
