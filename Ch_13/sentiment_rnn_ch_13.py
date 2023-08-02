@@ -31,3 +31,7 @@ print(X_train[0])
 
 word_index = imdb.get_word_index()
 index_word = {index: word for word, index in word_index.items()}
+
+# take the first review as an example
+
+print([index_word.get(i, ' ') for i in X_train[0]])
