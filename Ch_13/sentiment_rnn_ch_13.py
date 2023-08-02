@@ -71,3 +71,9 @@ tf.random.set_seed(42)
 
 model = models.Sequential()
 
+# since our input sequences are word indices that are equivalent to one-hot encoded vectors
+# we need to embed them in dense vectors using the embedding layer from keras
+
+embedding_size = 32
+
+model.add(layers.Embedding(vocab_size, embedding_size))
