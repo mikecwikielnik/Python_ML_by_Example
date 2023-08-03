@@ -110,3 +110,8 @@ model.add(layers.LSTM(hidden_units, return_sequences=True, dropout=dropout))
 
 model.add(layers.TimeDistributed(layers.Dense(n_vocab, activation='softmax')))
 
+# next we compile the network. We choose RMSprop w/ a learning rate of 0.001
+
+optimizer = optimizers.RMSprop(learning_rate=0.001)
+model.compile(loss='categorical_crossentropy', optimizer=optimizer)
+
