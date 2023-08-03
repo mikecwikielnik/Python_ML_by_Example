@@ -102,3 +102,11 @@ dropout = 0.4
 batch_size = 100
 n_epoch = 300
 
+# we create the RNN as follows
+
+model = models.Sequential()
+model.add(layers.LSTM(hidden_units, input_shape=(None, n_vocab), return_sequences=True, dropout=dropout))
+model.add(layers.LSTM(hidden_units, return_sequences=True, dropout=dropout))
+
+model.add(layers.TimeDistributed(layers.Dense(n_vocab, activation='softmax')))
+
