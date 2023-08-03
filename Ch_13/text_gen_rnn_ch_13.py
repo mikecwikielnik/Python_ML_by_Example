@@ -58,3 +58,23 @@ n_seq = int(n_chars / seq_length)
 X = np.zeros((n_seq, seq_length, n_vocab))
 Y = np.zeros((n_seq, seq_length, n_vocab))
 
+# now for each of the n_seq samples, we assing "1" to the indices of the input vectors
+# and output vectors where the corresponding characters exist
+
+for i in range(n_seq):
+    x_sequence = raw_text[i * seq_length : (i + 1) * seq_length]
+    x_sequence_ohe = np.zeros((seq_length, n_vocab))
+    for j in range(seq_length):
+        char = x_sequence[j]
+        index = char_to_index[char]
+        x_sequence_ohe[j][index] = 1
+    X[i] = x_sequence_ohe
+    y_sequence = raw_text[i * seq_length + 1: (i + 1) * seq_length + 1]
+    y_sequence_ohe = np.zeros((seq_length, n_vocab))
+    for j in range(seq_length):
+        char = y_sequence[j]
+        index = char_to_index[char]
+        y_sequence_ohe[j][index] = 1 
+    Y[i] = y_sequence_ohe
+
+    
