@@ -32,3 +32,10 @@ print(f'Number of unique words: {len(unique_words)}')
 
 n_chars = len(raw_text)
 print(f'Total characters: {n_chars}')
+
+# from the 3 million characters, we obtain the unique characters
+
+chars = sorted(list(set(raw_text)))
+n_vocab = len(chars)
+print(f'total vocabulary (unique characters): {n_vocab}')
+print(chars)
