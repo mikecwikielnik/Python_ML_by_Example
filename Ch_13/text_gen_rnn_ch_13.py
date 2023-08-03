@@ -82,3 +82,13 @@ for i in range(n_seq):
 print(X.shape)
 print(Y.shape)
 
+# training set is ready and it is time to build, fit RNN model
+
+# ----------------- Building an RNN text generator ------------------
+
+# we wil build a RNN w/ two stacked recurrent layers
+
+# fix a random seed
+
+tf.random.set_seed(42)
+
