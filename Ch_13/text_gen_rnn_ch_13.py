@@ -27,3 +27,8 @@ print(raw_text[:200])
 all_words = raw_text.split()
 unique_words = list(set(all_words))
 print(f'Number of unique words: {len(unique_words)}')
+
+# then we cound the total number of characters
+
+n_chars = len(raw_text)
+print(f'Total characters: {n_chars}')
