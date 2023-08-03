@@ -123,3 +123,8 @@ print(model.summary())
 
 filepath = "weights/weights_epoch_{epoch:03d}_loss_{loss:.4f}.hdf5"
 checkpoint = ModelCheckpoint(filepath, monitor='loss', verbose=1, save_best_only=True, mode='min')
+
+# we create an early stopping callback to halt the training if the validation loss doesn't decrease for 50 successive epochs
+
+early_stop = EarlyStopping(monitor='loss', min_delta=0, patience=50, verbose=1, mode='min')
+
