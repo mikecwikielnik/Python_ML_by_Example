@@ -46,3 +46,9 @@ print(chars)
 index_to_char = dict((i, c) for i, c in enumerate(chars))
 char_to_index = dict((c, i) for i, c in enumerate(chars))
 print(char_to_index)
+
+# now that the character lookup dictionary is ready, we can construct the entire training set
+
+seq_length = 160
+n_seq = int(n_chars / seq_length)
+
