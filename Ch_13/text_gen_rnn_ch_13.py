@@ -153,7 +153,7 @@ def generate_text(model, gen_length, n_vocab, index_to_char):
 
 # now we define the callback class that generates text with the generate_text fn for every n epochs
 
-class ResultCheck(Callback):
+class ResultChecker(Callback):
     def __init__(self, model, N, gen_length):
         self.model = model
         self.N = N
@@ -164,4 +164,9 @@ class ResultCheck(Callback):
             result = generate_text(self.model, self.gen_length, n_vocab, index_to_char)
             print('\nMy War and Peace:\n' + result)
 
-            
+# next, we initiate a text generation checker callback
+
+result_checker = ResultChecker(model, 10, 500)            
+
+# the model will generate text of 500 characters for every 10 epochs
+
