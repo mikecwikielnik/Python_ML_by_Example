@@ -170,3 +170,8 @@ result_checker = ResultChecker(model, 10, 500)
 
 # the model will generate text of 500 characters for every 10 epochs
 
+# now that all the callback components are ready, we can start training the model
+
+model.fit(X, Y, batch_size=batch_size, verbose=1, epochs=n_epoch,
+          callbacks=[result_checker, checkpoint, early_stop])
+
