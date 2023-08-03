@@ -77,4 +77,8 @@ for i in range(n_seq):
         y_sequence_ohe[j][index] = 1 
     Y[i] = y_sequence_ohe
 
-    
+# now take a look at the shapes of the constructed input, output samples
+
+print(X.shape)
+print(Y.shape)
+
