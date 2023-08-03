@@ -128,3 +128,26 @@ checkpoint = ModelCheckpoint(filepath, monitor='loss', verbose=1, save_best_only
 
 early_stop = EarlyStopping(monitor='loss', min_delta=0, patience=50, verbose=1, mode='min')
 
+# we develop a helper function that generates text of any length, given a model
+
+def generate_text(model, gen_length, n_vocab, index_to_char):
+    """
+    generating text using the RNN model
+    @param model: current RNN model
+    @param gen_length: number of characters we want to generate
+    @param n_vocab: number of unique characters
+    @param index_to_char: index to character mapping
+    @return: 
+    """
+
+    # start w/ a randomly picked character
+    index = np.random.randint(n_vocab)
+    y_char = [index_to_char[index]]
+    X = np.zeros((1, gen_length, n_vocab))
+    for i in range(gen_length):
+        X[0, i, index] = 1.
+        indices = np.argmax(model.predict(X[:, max(0, i - 99):i + 1, :])[0], 1)
+        index = indices[-1]
+        y_char.append(index_to_char[index])
+    return ''.join(y_char)
+
