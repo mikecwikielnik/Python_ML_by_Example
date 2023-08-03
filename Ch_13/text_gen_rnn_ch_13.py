@@ -97,3 +97,8 @@ tf.random.set_seed(42)
 hidden_units = 700
 dropout = 0.4
 
+# we specify other hyperparameters including batch size, and number of epochs
+
+batch_size = 100
+n_epoch = 300
+
