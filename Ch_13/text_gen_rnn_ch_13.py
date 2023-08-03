@@ -22,3 +22,8 @@ raw_text = raw_text.lower()
 
 print(raw_text[:200])
 
+# next we count the number of unique words
+
+all_words = raw_text.split()
+unique_words = list(set(all_words))
+print(f'Number of unique words: {len(unique_words)}')
