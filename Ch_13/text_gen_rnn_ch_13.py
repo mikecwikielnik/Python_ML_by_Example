@@ -92,3 +92,8 @@ print(Y.shape)
 
 tf.random.set_seed(42)
 
+# each recurrent layer contains 700 units, w/ a 0.4 dropout ratio and tanh activation fn
+
+hidden_units = 700
+dropout = 0.4
+
