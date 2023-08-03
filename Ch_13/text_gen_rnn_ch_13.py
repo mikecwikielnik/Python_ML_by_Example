@@ -115,3 +115,7 @@ model.add(layers.TimeDistributed(layers.Dense(n_vocab, activation='softmax')))
 optimizer = optimizers.RMSprop(learning_rate=0.001)
 model.compile(loss='categorical_crossentropy', optimizer=optimizer)
 
+# lets summarize the model 
+
+print(model.summary())
+
