@@ -17,3 +17,8 @@ training_file = 'warpeace_input.txt'
 
 raw_text = open(training_file, 'r').read()
 raw_text = raw_text.lower()
+
+# we take a quick look at the training text data by printing out the first 200 characters
+
+print(raw_text[:200])
+
