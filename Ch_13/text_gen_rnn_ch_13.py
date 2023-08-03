@@ -151,3 +151,17 @@ def generate_text(model, gen_length, n_vocab, index_to_char):
         y_char.append(index_to_char[index])
     return ''.join(y_char)
 
+# now we define the callback class that generates text with the generate_text fn for every n epochs
+
+class ResultCheck(Callback):
+    def __init__(self, model, N, gen_length):
+        self.model = model
+        self.N = N
+        self.gen_length = gen_length
+
+    def on_epoch_end(self, epoch, logs={}):
+        if epoch % self.N == 0:
+            result = generate_text(self.model, self.gen_length, n_vocab, index_to_char)
+            print('\nMy War and Peace:\n' + result)
+
+            
