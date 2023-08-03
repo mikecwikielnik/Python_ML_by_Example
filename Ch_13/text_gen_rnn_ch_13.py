@@ -52,3 +52,9 @@ print(char_to_index)
 seq_length = 160
 n_seq = int(n_chars / seq_length)
 
+# next we initialize the training inputs, outputs
+# both are the shape (number of samples, sequence length, feature dimension)
+
+X = np.zeros((n_seq, seq_length, n_vocab))
+Y = np.zeros((n_seq, seq_length, n_vocab))
+
