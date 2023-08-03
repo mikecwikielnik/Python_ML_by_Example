@@ -119,3 +119,7 @@ model.compile(loss='categorical_crossentropy', optimizer=optimizer)
 
 print(model.summary())
 
+# ----------------- training the RNN text generator -------------------
+
+filepath = "weights/weights_epoch_{epoch:03d}_loss_{loss:.4f}.hdf5"
+checkpoint = ModelCheckpoint(filepath, monitor='loss', verbose=1, save_best_only=True, mode='min')
